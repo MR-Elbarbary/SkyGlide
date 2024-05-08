@@ -31,7 +31,7 @@ public class DatabaseConnection {
     }
 
     public boolean isValidAdmin(String username, String password) {
-        String sql = "SELECT COUNT(*) FROM admins WHERE username = ? AND password = ?";
+        String sql = "SELECT COUNT(*) FROM admins WHERE name = ? AND password = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);

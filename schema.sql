@@ -6,6 +6,12 @@ CREATE TABLE Users (
     password TEXT NOT NULL
 );
 
+CREATE TABLE admins (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    password TEXT NOT NULL
+);
+
 CREATE TABLE Airports (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,

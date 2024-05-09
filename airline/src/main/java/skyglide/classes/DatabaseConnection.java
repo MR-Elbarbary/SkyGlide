@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import skyglide.classes.user.User;
 
 public class DatabaseConnection {
     private static final String URL = "jdbc:sqlite:skyglide.db";
@@ -55,4 +59,21 @@ public class DatabaseConnection {
             return false;
         }
     }
+
+    public List<User> getAllUsers() {
+    List<User> users = new ArrayList<>();
+    String sql = "SELECT * FROM users";
+    try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String username = rs.getString("name");
+            String password = rs.getString("password");
+            users.add(new User(id, username, password));
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return users;
+}
 }

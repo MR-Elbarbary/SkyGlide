@@ -1,6 +1,5 @@
 package skyglide;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,6 +46,16 @@ public class Login {
         // Check if the username and password are valid for admin login
         if (databaseConnection.isValidAdmin(username, password)) {
             // Admin login successful
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("adminmain.fxml"));
+                Parent root = loader.load();
+                Stage stage = (Stage) usernameField.getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             // Open admin dashboard or perform admin-specific actions
             System.out.println("Admin login successful");
         } else if (databaseConnection.isValidUser(username, password)) {

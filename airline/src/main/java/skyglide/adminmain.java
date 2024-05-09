@@ -1,7 +1,6 @@
 package skyglide;
 
 import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,14 +14,18 @@ public class adminmain {
     @FXML
     private TableColumn<User, Integer> idColumn;
     @FXML
-    private TableColumn<User, String> usernameColumn;
+    private TableColumn<User, String> nameColumn;
     @FXML
     private TableColumn<User, String> passwordColumn;
 
     public void initialize() {
+        load();
+    }
+
+    private void load() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        usernameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
+        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
 
         // Load data from the database and populate the table
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();

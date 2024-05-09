@@ -1,6 +1,6 @@
 #Left_Pane{
 
-    -fx-background-color : rgb(0, 0, 48) ;
+    -fx-background-color : rgb(0, 0, 46) ;
 }
 #Right_Pane {
 
@@ -16,5 +16,14 @@
 #Moving_Pane {
     
     -fx-background-color : rgb(49, 12, 185) ;
+
+}
+
+#Sign_Admin {
+
+    
+    -fx-background-color : rgb(63, 4, 75) ;
+    -fx-font-size : 20px ;
+    
 
 }

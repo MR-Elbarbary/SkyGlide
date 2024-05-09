@@ -1,4 +1,5 @@
 package skyglide;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,11 @@ import javafx.util.Duration;
 
 public class Help implements Initializable {
 
+    /*
+    Controlling Variables Giving It's FX:ID
+    Controller Class For Help Page (Connected To FXML Files)
+   */
+
     @FXML
     private Button Back;
 
@@ -29,7 +35,7 @@ public class Help implements Initializable {
     @FXML
     private Label Third_Label;
 
-
+    // Buttons For Interactiing With Users :
 
 
     @FXML
@@ -69,9 +75,6 @@ public class Help implements Initializable {
         translate3.setDuration(Duration.millis(1600));
         translate3.setByX(430);
         translate3.play();
-
-
-
 
     }
 

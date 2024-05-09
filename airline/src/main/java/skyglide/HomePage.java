@@ -1,4 +1,5 @@
 package skyglide;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +21,10 @@ import javafx.scene.Node;
 
 public class HomePage implements Initializable {
 
-    // Conteroller from Scene Builder for HomePage 
+   /*
+    Controlling Variables Giving It's FX:ID
+    Controller Class For Home Page (Connected To FXML Files)
+   */
 
     @FXML
     private Button Back;
@@ -47,11 +51,18 @@ public class HomePage implements Initializable {
     private Button Profile;
 
     @FXML
+    private Button Search;
+    
+    @FXML
+    private Button Pennding;
+
+    @FXML
     private Pane Left_Pane;
 
     @FXML
     private Pane Moving_Pane;
 
+    // Buttons For Interactiing With Users :
 
     @FXML
     void Return_Back_Previous_Page(ActionEvent event) throws IOException {
@@ -71,14 +82,13 @@ public class HomePage implements Initializable {
 
     }
 
-    // For Helping User Giving an Info about our App :
+
     @FXML
     void Switch_Help(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("Help.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-
         stage.setTitle("Help !");
         stage.setX(330);
         stage.setY(90);
@@ -94,7 +104,6 @@ public class HomePage implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("Sign.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-
         stage.setTitle("Sign In");
         stage.setX(330);
         stage.setY(90);
@@ -109,7 +118,6 @@ public class HomePage implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
-
         stage.setTitle("Login");
         stage.setX(330);
         stage.setY(90);
@@ -130,18 +138,39 @@ public class HomePage implements Initializable {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("Are You Sure to Exit ?");
-
         if (alert.showAndWait().get() == ButtonType.OK) { Stage.close(); }
             
-
     }
 
     @FXML
     void Switch_Profile(ActionEvent event) {
 
     }
-
     
+    @FXML
+    void Search(ActionEvent event) throws IOException {
+        
+        Parent root = FXMLLoader.load(getClass().getResource("\\FXML\\Search.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setTitle("SkyGlide");
+        stage.setX(200);
+        stage.setY(5);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void Pennding(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("Pennding.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setTitle("SkyGlide");
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
 
     // Strating For Window open Action Animations :
@@ -154,7 +183,7 @@ public class HomePage implements Initializable {
         translate.setDuration(Duration.millis(1500));
         translate.setByX(-140);
         translate.play();
-    
+     
         
         TranslateTransition translate1 = new TranslateTransition();
         translate1.setNode(Left_Pane);
@@ -163,7 +192,6 @@ public class HomePage implements Initializable {
         translate1.play();        
 
     }
-
 }
 
 

@@ -1,8 +1,8 @@
 package skyglide;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -24,39 +24,42 @@ import javafx.util.Duration;
 
 public class Scene1 implements Initializable{
 
-    // Conteroller from Scene Builder for Starting Page 
+    /*
+    Controlling Variables Giving It's FX:ID
+    Controller Class For Scene1 (Connected To FXML Files)
+   */
 
-    @FXML
-    private ResourceBundle resources;
+   @FXML
+   private Button HomePage;
 
-    @FXML
-    private URL location;
+   @FXML
+   private Button Login;
 
-    @FXML
-    private Button Logout;
+   @FXML
+   private Button Logout;
 
-    @FXML
-    private Button Login;
+   @FXML
+   private Pane Moving_Pane;
 
-    @FXML
-    private Button Sign_in;
+   @FXML
+   private Button Sign_Admin;
 
-    @FXML
-    private Button HomePage;
+   @FXML
+   private Button Sign_in;
 
-    @FXML
-    private ImageView Small_AirPlane;
+   @FXML
+   private ImageView Small_AirPlane;
 
-    @FXML
-    private Label Title;
+   @FXML
+   private Label Small_Label;
 
-    @FXML
-    private Label Small_Label;
+   @FXML
+   private Pane Small_Line;
 
-    @FXML
-    private Pane Small_Line;
+   @FXML
+   private Label Title;
 
-
+     // Buttons For Interactiing With Users :
 
     @FXML
     void Login(ActionEvent event) throws IOException {
@@ -74,7 +77,6 @@ public class Scene1 implements Initializable{
 
     }
 
-    // Method for Accessing Sign In Page for the User
     @FXML
     void Sign_In(ActionEvent event) throws IOException{
 
@@ -90,7 +92,7 @@ public class Scene1 implements Initializable{
 
     }
 
-    // Method For Asking the User if he needs to exit and Logout
+
     @FXML
     void Logout(ActionEvent event) {
 
@@ -110,13 +112,30 @@ public class Scene1 implements Initializable{
          Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          Scene scene = new Scene(root);
 
-         stage.setTitle("Airlne App");
+         stage.setTitle("SkgyGlide");
          stage.setX(200);
          stage.setY(5);
          stage.setScene(scene);
          stage.show();
 
     }
+
+    @FXML
+    void Admin_Page(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(getClass().getResource("AdminPage.fxml"));
+         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+         Scene scene = new Scene(root);
+
+         stage.setTitle("SkgyGlide");
+         stage.setX(200);
+         stage.setY(5);
+         stage.setScene(scene);
+         stage.show();
+
+
+    }
+
 
 
     @FXML
@@ -125,6 +144,8 @@ public class Scene1 implements Initializable{
 
     }
 
+    // Strating For Window open Action Animations :
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -159,10 +180,7 @@ public class Scene1 implements Initializable{
         translate3.setDuration(Duration.millis(2000));
         translate3.setByX(300);
         translate3.play();
-
-
-
-        
-
     }    
+
+    
 }

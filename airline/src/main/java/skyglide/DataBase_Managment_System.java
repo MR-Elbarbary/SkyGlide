@@ -20,6 +20,11 @@ import javafx.util.Duration;
 
 public class DataBase_Managment_System implements Initializable{
 
+    /*
+    Controlling Variables Giving It's FX:ID
+    Controller Class For DataBase Managment System (Connected To FXML Files)
+    */
+
    @FXML
     private Button Back;
 
@@ -41,21 +46,23 @@ public class DataBase_Managment_System implements Initializable{
     @FXML
     private Pane Show_Page;
 
-
+    // Buttons For Interactiing With Users :
 
     @FXML
     void Back(ActionEvent event) throws IOException{
 
-         Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("AdminPage.fxml"));
          Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          Scene scene = new Scene(root);
          stage.setTitle("SkyGlide");
-         stage.setX(290);
-         stage.setY(130);
+         stage.setX(200);
+         stage.setY(5);
          stage.setScene(scene);
          stage.show();
 
     }
+
+     // Strating For Window open Action Animations :
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,19 +76,19 @@ public class DataBase_Managment_System implements Initializable{
         TranslateTransition translate1 = new TranslateTransition();
         translate1.setNode(Lable1);
         translate1.setDuration(Duration.millis(1400));
-        translate1.setByX(60);
+        translate1.setByX(20);
         translate1.play();
 
         TranslateTransition translate2 = new TranslateTransition();
         translate2.setNode(Label2);
         translate2.setDuration(Duration.millis(1500));
-        translate2.setByX(60);
+        translate2.setByX(20);
         translate2.play();
 
         TranslateTransition translate3 = new TranslateTransition();
         translate3.setNode(Label3);
         translate3.setDuration(Duration.millis(1600));
-        translate3.setByX(10);
+        translate3.setByX(20);
         translate3.play();
 
     }

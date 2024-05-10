@@ -24,7 +24,10 @@ import javafx.util.Duration;
 
 public class Scene1 implements Initializable{
 
-    // Conteroller from Scene Builder for Starting Page 
+    /*
+    Controlling Variables Giving It's FX:ID
+    Controller Class For Scene1 (Connected To FXML Files)
+    */
 
     @FXML
     private Button HomePage;
@@ -56,7 +59,7 @@ public class Scene1 implements Initializable{
     @FXML
     private Label Title;
 
-
+     // Buttons For Interactiing With Users :
 
 
     @FXML
@@ -107,7 +110,7 @@ public class Scene1 implements Initializable{
 
     }
 
-    // Method For Asking the User if he needs to exit and Logout
+    
     @FXML
     void Logout(ActionEvent event) {
 
@@ -142,10 +145,11 @@ public class Scene1 implements Initializable{
 
     }
 
+      // Strating For Window open Action Animations :
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
-        
         TranslateTransition translate = new TranslateTransition();
         RotateTransition rotate = new RotateTransition();
 

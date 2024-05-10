@@ -1,0 +1,47 @@
+#Main_Page {
+    -fx-background-color : rgba(207, 207, 252, 0.993) ;
+}
+
+#Left_Pane {
+    -fx-background-color : rgba(34, 3, 63, 0.993) ;
+}
+
+#Back {
+  -fx-background-color : rgb(255, 136, 0) ;
+}
+
+#Source_Pane {
+    
+  -fx-background-color : rgba(19, 3, 63, 0.993) ;
+}
+
+#Line_Pane {
+    
+    -fx-background-color : rgba(0, 0, 0, 0.993) ;
+}
+
+#Small_Pane {
+
+  -fx-background-color : rgba(7, 18, 80, 0.993) ;
+
+}
+
+/* For Tables ex: F;ight_Table*/
+
+#Left_Column {
+
+  -fx-background-color : rgba(207, 207, 252, 0.993) ;
+
+}
+
+#Right_Column {
+
+  -fx-background-color : rgba(207, 207, 252, 0.993) ;
+
+}
+
+#Flight_Table {
+
+  -fx-background-color : rgba(36, 36, 70, 0.993) ;
+
+}

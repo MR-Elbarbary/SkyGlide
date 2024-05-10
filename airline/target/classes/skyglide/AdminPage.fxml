@@ -199,7 +199,7 @@
             <Label layoutX="21.0" layoutY="88.0" />
             <Pane layoutX="26.0" layoutY="-21.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Button id="Checking_Flights" fx:id="Checking_Flights" layoutX="19.0" layoutY="125.0" mnemonicParsing="false" style="-fx-background-radius: 30;" text="Checking Flights" textFill="#0051ff">
+                  <Button id="Checking_Flights" fx:id="Checking_Flights" layoutX="19.0" layoutY="125.0" mnemonicParsing="false" onAction="#Checking_Flights" style="-fx-background-radius: 30;" text="Checking Flights" textFill="#0051ff">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>

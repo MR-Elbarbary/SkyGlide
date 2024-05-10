@@ -25,7 +25,6 @@ public class Admin_Page implements Initializable{
     Controller Class For Admin Page (Connected To FXML Files)
     */
 
-
     @FXML
     private Button Add_Members;
 
@@ -90,6 +89,7 @@ public class Admin_Page implements Initializable{
     private Pane Underline;
 
 
+
     // Buttons For Interactiing With Users :
 
     @FXML
@@ -121,7 +121,14 @@ public class Admin_Page implements Initializable{
     }
 
     @FXML
-    void Cekcing_Flights(ActionEvent event) {
+    void Checking_Flights(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(getClass().getResource("Checking_Fligts.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setTitle("SkyGlide");
+        stage.setScene(scene);
+        stage.show();
 
     }
 

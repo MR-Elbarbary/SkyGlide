@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane id="Main_Page" fx:id="Main_Page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1072.0" stylesheets="@Checking_Flights.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skyglide.Checking_Flights">
+   <children>
+      <Pane id="Left_Pane" fx:id="Left_Pane" layoutX="-155.0" prefHeight="675.0" prefWidth="200.0" style="-fx-background-radius: 50;">
+         <children>
+            <Button id="Back" fx:id="Back" layoutX="23.0" layoutY="21.0" mnemonicParsing="false" onAction="#Back" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Button>
+            <Label id="Label2" fx:id="Label2" layoutX="40.0" layoutY="107.0" text="Airline" textFill="#0014f2">
+               <font>
+                  <Font name="System Italic" size="36.0" />
+               </font>
+            </Label>
+            <Pane id="Small_Pane" fx:id="Small_Pane" layoutX="-150.0" layoutY="160.0" prefHeight="271.0" prefWidth="200.0" style="-fx-background-radius: 90;">
+               <children>
+                  <Label layoutX="30.0" layoutY="39.0" text="Checking Flights " textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="76.0" text="Which Are Available" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="118.0" text="For Adding Or Removing " textFill="#5e00ff">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="46.0" layoutY="165.0" text="For Checking " textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="56.0" layoutY="212.0" text="Price" textFill="#00ff09">
+                     <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane id="Source_Pane" fx:id="Source_Pane" layoutX="238.0" layoutY="144.0" prefHeight="405.0" prefWidth="758.0">
+         <effect>
+            <DropShadow spread="0.65">
+               <color>
+                  <Color green="0.03333333507180214" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TableView id="Flight_Table" layoutX="39.0" layoutY="21.0" prefHeight="367.0" prefWidth="515.0" stylesheets="@Checking_Flights.css">
+              <columns>
+                <TableColumn id="Left_Column " prefWidth="254.0" text="Flight" />
+                <TableColumn id="Right_Column " minWidth="0.0" prefWidth="260.0" text="Price" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Label id="Label1" fx:id="Label1" layoutX="336.0" layoutY="-70.0" text="Checking Flights Administration">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Pane id="Line_Pane" fx:id="Line_Pane" layoutX="317.0" layoutY="-14.0" prefHeight="3.0" prefWidth="384.0" />
+   </children>
+</Pane>

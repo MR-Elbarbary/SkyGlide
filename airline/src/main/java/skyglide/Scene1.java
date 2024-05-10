@@ -27,34 +27,35 @@ public class Scene1 implements Initializable{
     // Conteroller from Scene Builder for Starting Page 
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button Logout;
+    private Button HomePage;
 
     @FXML
     private Button Login;
 
     @FXML
+    private Button Logout;
+
+    @FXML
+    private Pane Moving_Pane;
+
+    @FXML
+    private Button Sign_Admin;
+
+    @FXML
     private Button Sign_in;
 
     @FXML
-    private Button HomePage;
-
-    @FXML
     private ImageView Small_AirPlane;
-
-    @FXML
-    private Label Title;
 
     @FXML
     private Label Small_Label;
 
     @FXML
     private Pane Small_Line;
+
+    @FXML
+    private Label Title;
+
 
 
 
@@ -74,7 +75,23 @@ public class Scene1 implements Initializable{
 
     }
 
-    // Method for Accessing Sign In Page for the User
+    @FXML
+    void Sign_As_Admin(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(getClass().getResource("AdminPage.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setTitle("Login");
+        stage.setX(200);
+        stage.setY(5);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+
+   
     @FXML
     void Sign_In(ActionEvent event) throws IOException{
 

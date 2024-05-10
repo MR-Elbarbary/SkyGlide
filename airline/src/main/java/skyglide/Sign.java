@@ -1,11 +1,11 @@
 package skyglide;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -20,7 +20,10 @@ import javafx.scene.Node;
 
 public class Sign implements Initializable{
 
-    // Conteroller from Scene Builder for Sign in Page 
+   /*
+    Controlling Variables Giving It's FX:ID
+    Controller Class For Sign Page (Connected To FXML Files)
+   */
 
     @FXML
     private TextField DateBirth_TextField;
@@ -38,11 +41,7 @@ public class Sign implements Initializable{
     private TextField Username_Textfield;
 
     @FXML
-    private DatePicker datePicker;
-
-    @FXML
     private Label SignIn;
-
 
     @FXML
     private Label Welcome;
@@ -51,8 +50,8 @@ public class Sign implements Initializable{
     private Label Back;
 
 
+     // Buttons For Interactiing With Users :
 
-    // Method for Returning Back the Previous Page First Page 
     @FXML
     void Return_Back_Previous_Page(ActionEvent event) throws IOException{
 
@@ -66,11 +65,7 @@ public class Sign implements Initializable{
 
     }
 
-    // Method for Chaning DateBirth of User in Specific Label or any Space 
-    @FXML
-    void Change_DateBirth_Text(ActionEvent event) throws IOException {
 
-    }
 
     @FXML
     void initialize() {
@@ -79,16 +74,17 @@ public class Sign implements Initializable{
         assert Email_Textfield != null : "fx:id=\"Email_Textfield\" was not injected: check your FXML file 'Sign.fxml'.";
         assert Password_Textfield != null : "fx:id=\"Password_Textfield\" was not injected: check your FXML file 'Sign.fxml'.";
         assert Username_Textfield != null : "fx:id=\"Username_Textfield\" was not injected: check your FXML file 'Sign.fxml'.";
-        assert datePicker != null : "fx:id=\"datePicker\" was not injected: check your FXML file 'Sign.fxml'.";
 
     }
+
+    // Strating For Window open Action Animations :
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(Welcome);
-        translate.setDuration(Duration.millis(1400));
+        translate.setDuration(Duration.millis(1200));
         translate.setByX(200);
         translate.play();
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -20,6 +21,9 @@
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <ImageView fitHeight="88.0" fitWidth="83.0" layoutX="101.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" rotate="-45.6">
                <image>
@@ -91,6 +95,9 @@
                      </color>
                   </DropShadow>
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </Pane>
@@ -114,6 +121,9 @@
                      </color>
                   </DropShadow>
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button id="Remove_Member" fx:id="Remove_Member" layoutX="123.0" layoutY="101.0" mnemonicParsing="false" style="-fx-background-radius: 30;" text="Remoivng" textFill="#0051ff">
                <font>
@@ -126,6 +136,9 @@
                      </color>
                   </DropShadow>
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Label layoutX="21.0" layoutY="14.0" text="By Adding Or Removing" textFill="WHITE">
                <font>
@@ -174,6 +187,9 @@
                      </color>
                   </DropShadow>
                </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </Pane>
@@ -210,6 +226,9 @@
                            </color>
                         </DropShadow>
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </Pane>

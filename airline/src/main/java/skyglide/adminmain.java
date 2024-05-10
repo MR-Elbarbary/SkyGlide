@@ -18,12 +18,16 @@ import skyglide.classes.DatabaseConnection;
 import skyglide.classes.user.User;
 
 public class adminmain {
+
     @FXML
     private TableView<User> userTable;
+
     @FXML
     private TableColumn<User, Integer> idColumn;
+
     @FXML
     private TableColumn<User, String> nameColumn;
+
     @FXML
     private TableColumn<User, String> passwordColumn;
 
@@ -49,7 +53,7 @@ public class adminmain {
     @FXML
     void Back(ActionEvent event) throws IOException {
 
-         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

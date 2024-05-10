@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane id="Main_Page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1072.0" stylesheets="@Report.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skyglide.Report">
+   <children>
+      <Pane id="Left_Pane" fx:id="Left_Pane" layoutX="-202.0" layoutY="-5.0" prefHeight="667.0" prefWidth="228.0" style="-fx-background-radius: 69;">
+         <children>
+            <Button id="Back" fx:id="Back" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#Back" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Label id="Label" fx:id="Label" layoutX="475.0" layoutY="-106.0" text="FeedBack !!">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Pane fx:id="Moving_Line" layoutX="434.0" layoutY="-35.0" prefHeight="6.0" prefWidth="264.0" style="-fx-background-color: black;" />
+      <Pane id="Small_Pane" fx:id="Small_Pane" layoutX="-384.0" layoutY="164.0" prefHeight="350.0" prefWidth="216.0" style="-fx-background-radius: 30;">
+         <children>
+            <Label id="Label2" fx:id="Label2" layoutX="62.0" layoutY="21.0" text="Report" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="2.0" layoutY="88.0" text="Submiting Feedback If You" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="124.0" text="Faces Erorrs and Mistakes" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="162.0" text="And We All At Your" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="212.0" text="Service" textFill="#6f01ff">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>

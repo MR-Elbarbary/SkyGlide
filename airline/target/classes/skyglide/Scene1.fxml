@@ -23,7 +23,7 @@
                   <Font name="System Italic" size="10.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
                   <DropShadow spread="0.82">
@@ -38,7 +38,7 @@
                   <Font name="System Italic" size="10.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
                   <DropShadow spread="0.74">
@@ -53,7 +53,7 @@
                   <Font name="System Italic" size="10.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
                   <DropShadow spread="0.8">
@@ -92,7 +92,7 @@
                   <Font name="System Italic" size="10.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
                   <DropShadow spread="0.82">
@@ -112,7 +112,7 @@
                   <Font name="System Italic" size="10.0" />
                </font>
                <cursor>
-                  <Cursor fx:constant="DEFAULT" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
                <effect>
                   <DropShadow spread="0.74">

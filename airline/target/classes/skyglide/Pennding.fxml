@@ -18,9 +18,9 @@
          </font>
       </Label>
       <Pane layoutX="336.0" layoutY="92.0" prefHeight="4.0" prefWidth="217.0" style="-fx-background-color: black;" />
-      <Pane id="Left_Pane" fx:id="Left_Pane" layoutX="-185.0" prefHeight="642.0" prefWidth="200.0" style="-fx-background-radius: 30;">
+      <Pane id="Left_Pane" fx:id="Left_Pane" layoutX="-185.0" prefHeight="654.0" prefWidth="209.0" style="-fx-background-radius: 60;">
          <children>
-            <Button id="Back" fx:id="Back" layoutX="16.0" layoutY="8.0" mnemonicParsing="false" onAction="#Back" text="Back" textFill="WHITE">
+            <Button id="Back" fx:id="Back" layoutX="27.0" layoutY="25.0" mnemonicParsing="false" onAction="#Back" text="Back" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

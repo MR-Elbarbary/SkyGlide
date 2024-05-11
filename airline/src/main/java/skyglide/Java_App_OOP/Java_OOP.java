@@ -1,5 +1,4 @@
 package skyglide.Java_App_OOP;
-
 import java.util.Scanner;
 
 public class Java_OOP {
@@ -18,7 +17,9 @@ public static void main(String[] args) {
 
    User_Data C = new User_Data();
 
+
    System.out.println("Welcome To Our Airlne System !");
+   System.out.println();
 
    try {
 
@@ -26,8 +27,10 @@ public static void main(String[] args) {
     int y = input.nextInt();
 
     if ( y == 1 ) {
+
         System.out.println("Do You Want To Register with us ? (1=>Yes) (2=>No)");
         int x = input.nextInt();
+        System.out.println();
 
     switch (x) {
         case 1:
@@ -43,11 +46,15 @@ public static void main(String[] args) {
     System.out.println("Do You Want To Check Your Data with us ? (1=>Yes) (2=>No)");
     int x1 = input.nextInt();
 
+    System.out.println();
+
     
     switch (x1) {
         case 1:
 
         C.Show_Data(); // Method ==> Class : User_Data 
+
+        System.out.println();
         
         break;
     
@@ -83,6 +90,7 @@ public static void main(String[] args) {
         c1[i] = new User_Data();
         c1[i].setAddress(z4);
 
+        System.out.println();
         System.out.println("______________________________");
 
             
@@ -93,7 +101,53 @@ public static void main(String[] args) {
    } catch (Exception e) {
 
     System.out.println("Something went wrong !");
+
    }
-    finally {input.close();}    
-    }   
+
+
+  try {
+    
+    System.out.println("Do You Want To Check List For Available Countries or Their Prices ??");
+    System.out.println();
+    System.out.println("(1==> Yes)");
+    int y1 = input.nextInt();
+
+    System.out.println();
+
+    if ( y1 == 1) {
+
+        System.out.println("(1==> Countries) (2==> Countries_Prices)");
+        int x2 = input.nextInt();
+
+        System.out.println();
+
+        switch (x2) {
+            case 1:
+
+            C.Show_Countries();
+            System.out.println();
+    
+                break;
+                case 2 :
+
+                 C.Show_Countries_Price();
+                 System.out.println();
+        
+            default:
+                break;
+        }
+    }
+    
+  } catch (Exception e) {
+
+    System.out.println("Something went wrong !");
+    
+  }
+
+  finally {input.close();}
+  
+  
+  }
 }
+
+

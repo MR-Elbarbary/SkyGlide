@@ -22,7 +22,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Scene1 implements Initializable{
+public class Scene1 implements Initializable { 
 
     /*
     Controlling Variables Giving It's FX:ID

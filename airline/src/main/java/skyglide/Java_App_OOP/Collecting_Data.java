@@ -1,5 +1,4 @@
 package skyglide.Java_App_OOP;
-
 public abstract class Collecting_Data {
 
     /*
@@ -15,6 +14,10 @@ public abstract class Collecting_Data {
 
     abstract public void Show_Data ();
     abstract public void Data_Request();
+    abstract public void Show_Countries();
+    abstract public void Show_Countries_Price();
+
+    
     
     
 }

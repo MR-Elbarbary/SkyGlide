@@ -1,0 +1,28 @@
+
+   Concept OOP :
+
+   
+  We Have New Classess Should You Work On 
+
+  Flights As implements Airline 
+  Working Methods On It
+
+  Java_App_OOP :
+  Folder Which Is Main Where We Work On 
+  Starter App From
+
+  Do Hard Code Such 
+   [ Array of objects and classess
+     Polymorphism ]
+
+  NEW CLASSESS NOT COMPLITED : [Flights - Arline]
+
+   But Working Only On One Folder For OOP : ==>   Java_App_OOP 
+
+
+ ^^ We Don't Have Mush Time
+  
+ 
+ 
+ 
+ 

@@ -125,12 +125,14 @@ public static void main(String[] args) {
             case 1:
 
             C.Show_Countries();
+
             System.out.println();
     
                 break;
                 case 2 :
 
                  C.Show_Countries_Price();
+
                  System.out.println();
         
             default:
@@ -140,13 +142,48 @@ public static void main(String[] args) {
     
   } catch (Exception e) {
 
-    System.out.println("Something went wrong !");
-    
+    System.out.println("Something went wrong !"); 
   }
 
-  finally {input.close();}
-  
-  
+
+  try {
+    
+     System.out.println("Do You Want To Check FLights ?? (1 ==> Yes) (2 ==> No)");
+     int y2 = input.nextInt();
+
+     if ( y2 == 1) {
+
+        System.out.println("Do You Want To Book Only one Flight Or More ??");
+        System.out.println("(1 ==> Only One)( Any No. ==> More)");
+        int x2 = input.nextInt();
+
+        switch (x2) {
+
+            case 1:
+                
+                break;
+        
+            default:
+                break;
+        }
+
+        
+     }
+    
+  } catch (Exception e) {
+    System.out.println("Something went wrong");
+  }
+
+
+
+
+  finally {
+
+    System.out.println("We Hope We Have service You We will Waiting For You Again !! \n");
+    System.out.println("You Have Exit Our System");
+    input.close();
+
+    }
   }
 }
 

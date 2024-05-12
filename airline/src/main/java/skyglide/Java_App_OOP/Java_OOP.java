@@ -9,7 +9,7 @@ public static void main(String[] args) {
     Special main method for Taking From User's Data or Check it :
     OBJECTS : NEED FOR AHCIEVING (METHODS - DATA - OTHER CLASSES)
     GUI : THIS CODES MUST APPEAR IN BUTTON (Profile ==> Homepage ):
-    DATABASE : NEEDE AT LEAST EACH VARIABLE IS INSERTED INTO TABLE BY MOHAMED
+    DATABASE : NEED AT LEAST EACH VARIABLE IS INSERTED INTO TABLE BY MOHAMED
 
     */
 

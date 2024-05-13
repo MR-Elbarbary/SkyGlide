@@ -92,10 +92,10 @@ public class Flights extends User_Data  implements Airline , Comparable{
                     X.add( "Flight no : " + (i+1) + "\n"+ 
                     "Departure Airport : " + Countries_Starter_Postition[i] + "Arrival Airport : " + Countries_Starter_Postition[j] )
                     );
+                    System.out.println(X.get(i) + Countries_Starter_Postition[j]);
                     System.out.println("___________________________________");
 
                  }
-                 System.out.println(X);
                  System.out.println();
     }
 

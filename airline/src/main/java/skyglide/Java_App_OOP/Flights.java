@@ -1,9 +1,9 @@
 package skyglide.Java_App_OOP;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-@SuppressWarnings("rawtypes")
-public class Flights implements Airline , Comparable{
+public class Flights extends User_Data  implements Airline , Comparable{
 
     Scanner input = new Scanner(System.in);
     
@@ -17,26 +17,19 @@ public class Flights implements Airline , Comparable{
      // Constructors According to User's Fields :
 
     Flights () {}
+    
+    public Flights(String name, String address, String email, double passportNumber, double phone,
+     String countries, double price) {
 
-    public Flights(Scanner input, String Countries, double Price) {
+        super(name, address, email, passportNumber, phone);
+        
+        this.Countries = countries;
+        this.Price = price;
 
-        this.input = input;
-        this.Countries = Countries;
-        this.Price = Price;
-
-        // Available Seats :
         Available_Seats -- ;
-
     }
 
-
-    public Scanner getInput() {
-        return input;
-    }
-
-    public void setInput(Scanner input) {
-        this.input = input;
-    }
+    
 
     public static double getAvailable_Seats() {
         return Available_Seats;
@@ -64,24 +57,61 @@ public class Flights implements Airline , Comparable{
 
     @Override
     public String toString() {
-
-        return     "Flights [input=" + input +
-                   ", Countries=" + Countries +
-                   ", Price=" + Price + "]";
+        return "Flights [Countries=" + Countries + ", Price=" + Price + ", getCountries()=" + getCountries()
+                + ", getName()=" + getName() + ", getAddress()=" + getAddress() + ", getPrice()=" + getPrice()
+                + ", getEmail()=" + getEmail() + ", getPhone()=" + getPhone() + "]";
     }
+
 
     // Mehtods :
 
     @Override
     public void Flights_Managment_Airlne() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Flights_Managment_Airlne'");
+   
+        String [] Countries_Starter_Postition = {
+
+            "United States","Qatar","Yemen","Oman","Andorra","Zimbabwe","United Kingdom",
+            "Japan","Vanuatu","Dominication","Germany","Russia","Hungary","Portugal",
+            "Rwanda","Denmark","Estonia","Finland","Ireland","Iran","Lithuania",
+            "Timor-Leste","Belgium","Luxembourg","China","Belize","Djibouti",
+            "Azerbaijan","Uzbekistan","Liechtenstein","Nicaragua","Brazil",
+            "Algeria","Netherlands","Poland","Sweden","France","Australia",
+            "Singapore","San Marino","Jamaica","Jordan","Italy","Tukiye",
+            "Bulgaria","Austria","Belarus","Albania","Armenia","Czechia",
+            
+               };
+                 // Assuming Countries Final Positions :
+
+                 ArrayList < String > X = new ArrayList<>();
+                 
+                 for (int i = 0 , j =49; i < Countries_Starter_Postition.length && j > Countries_Starter_Postition.length; i++ , j--) 
+                 {
+
+                    System.out.println(
+
+                    X.add( "Flight no : " + (i+1) + "\n"+ 
+                    "Departure Airport : " + Countries_Starter_Postition[i] + "Arrival Airport : " + Countries_Starter_Postition[j] )
+                    );
+                    System.out.println("___________________________________");
+
+                 }
+                 System.out.println(X);
+                 System.out.println();
     }
 
+   
+
+    @Override
+    public void Check_User_Data_And_Flights() {
+
+    }
+
+    
     @Override
     public int compareTo(Object o) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
     }
+
 
 }

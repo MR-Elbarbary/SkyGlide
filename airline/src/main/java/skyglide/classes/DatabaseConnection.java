@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import skyglide.classes.user.User;
 
 public class DatabaseConnection {
@@ -60,8 +62,8 @@ public class DatabaseConnection {
         }
     }
 
-    public List<User> getAllUsers() {
-    List<User> users = new ArrayList<>();
+    public ObservableList<User> getAllUsers() {
+    ObservableList<User> users = FXCollections.observableArrayList();
     String sql = "SELECT * FROM users";
     try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
         ResultSet rs = pstmt.executeQuery();
@@ -69,11 +71,24 @@ public class DatabaseConnection {
             int id = rs.getInt("id");
             String username = rs.getString("name");
             String password = rs.getString("password");
-            users.add(new User(id, username, password));
+            String email = rs.getString("email");
+            users.add(new User(id, username, password, email));
         }
     } catch (SQLException e) {
         e.printStackTrace();
-    }
+        }
     return users;
-}
+    }
+
+    public void adduser(String name, String password, String email){
+        String sql = "INSERT INTO Users(name, email, password) VALUES(?, ?, ?)";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+            pstmt.setString(1, name);
+            pstmt.setString(2, email);
+            pstmt.setString(3, password);
+            pstmt.executeUpdate();
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

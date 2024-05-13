@@ -4,11 +4,19 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private String email;
 
     public User(int id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    public User(int id, String username, String password, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
     }
 
     // Getter and setter methods for the fields
@@ -35,6 +43,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() {
+        return email;
+    }
 
     // toString method to provide a string representation of the object
     @Override
@@ -43,6 +57,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

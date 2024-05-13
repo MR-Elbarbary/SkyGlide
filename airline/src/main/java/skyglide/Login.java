@@ -47,7 +47,7 @@ public class Login {
         if (databaseConnection.isValidAdmin(username, password)) {
             // Admin login successful
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("adminmain.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("DataBase_Managment_System.fxml"));
                 Parent root = loader.load();
                 Stage stage = (Stage) usernameField.getScene().getWindow();
                 Scene scene = new Scene(root);

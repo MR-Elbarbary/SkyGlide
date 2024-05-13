@@ -52,6 +52,9 @@ public class DataBase_Managment_System implements Initializable{
     private Pane Show_Page;
 
     @FXML
+    private Pane Small_Pane;
+
+    @FXML
     private Button adminTable;
 
     @FXML
@@ -291,6 +294,12 @@ private void edit(ActionEvent event) throws IOException {
         translate5.setDuration(Duration.millis(1600));
         translate5.setByX(20);
         translate5.play();
+
+        TranslateTransition translate6 = new TranslateTransition();
+        translate6.setNode(Small_Pane);
+        translate6.setDuration(Duration.millis(2000));
+        translate6.setByX(75);
+        translate6.play();
 
     }
 

@@ -14,3 +14,19 @@
   -fx-background-color : rgba(19, 3, 63, 0.993) ;
 }
 
+#Small_Pane {
+
+  -fx-background-color : rgba(4, 5, 41, 0.993) ;
+
+}
+
+#aircraftTable {-fx-background-color : rgba(4, 5, 41, 0.993) ;}
+
+#airportsTable { -fx-background-color : rgba(4, 5, 41, 0.993) ; }
+
+#adminTable { -fx-background-color : rgba(4, 5, 41, 0.993) ;}
+
+#flightsTable { -fx-background-color : rgba(4, 5, 41, 0.993) ;}
+
+#usersTable {-fx-background-color : rgba(4, 5, 41, 0.993) ;}
+

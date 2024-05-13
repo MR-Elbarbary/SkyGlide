@@ -70,7 +70,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="Submit" fx:id="Submit" layoutX="631.0" layoutY="397.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: Black; -fx-background-radius: 55;" text="Submit" textFill="#0fd726">
+      <Button id="Submit" fx:id="Submit" layoutX="631.0" layoutY="397.0" mnemonicParsing="false" onAction="#submit" prefHeight="39.0" prefWidth="95.0" style="-fx-background-color: Black; -fx-background-radius: 55;" text="Submit" textFill="#0fd726">
          <font>
             <Font size="18.0" />
          </font>

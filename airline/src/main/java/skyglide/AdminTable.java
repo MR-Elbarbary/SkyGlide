@@ -32,7 +32,7 @@ import javafx.util.Duration;
 import skyglide.classes.DatabaseConnection;
 import skyglide.classes.user.User;
 
-public class DataBase_Managment_System implements Initializable{
+public class AdminTable implements Initializable{
 
     /*
     Controlling Variables Giving It's FX:ID
@@ -153,20 +153,6 @@ public class DataBase_Managment_System implements Initializable{
     }
 
     @FXML
-    private void getaddview(MouseEvent event) throws IOException{
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("adduser.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @FXML
     private void add(ActionEvent event) throws IOException {
         String name = username.getText();
         String password = userpassword.getText();
@@ -180,9 +166,9 @@ public class DataBase_Managment_System implements Initializable{
         }
         else{
             DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-            databaseConnection.adduser(name, password, email);
+            databaseConnection.addadmin(name, password, email);
             clean();
-            refreshtable(null);
+            refreshtable();
         }
     }
 
@@ -198,8 +184,8 @@ public class DataBase_Managment_System implements Initializable{
     }
 
     DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-    databaseConnection.deleteUser(selectedUser.getId());
-    refreshtable(null);
+    databaseConnection.deleteadmin(selectedUser.getId());
+    refreshtable();
     }
 
     @FXML
@@ -231,16 +217,16 @@ private void edit(ActionEvent event) throws IOException {
         alert.showAndWait();
     } else {
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        databaseConnection.updateUser(selectedUser.getId(), name, password, email);
-        refreshtable(null);
+        databaseConnection.updateadmin(selectedUser.getId(), name, password, email);
+        refreshtable();
     }
 }
 
     @FXML
-    private void refreshtable(MouseEvent event) throws IOException{
+    private void refreshtable() throws IOException{
         users.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        users = databaseConnection.getAllUsers(); // Implement this method in DatabaseConnection
+        users = databaseConnection.getAlladmins(); // Implement this method in DatabaseConnection
         userTable.setItems(users);
 
     }
@@ -253,7 +239,7 @@ private void edit(ActionEvent event) throws IOException {
 
         // Load data from the database and populate the table
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        users = databaseConnection.getAllUsers(); // Implement this method in DatabaseConnection
+        users = databaseConnection.getAlladmins(); // Implement this method in DatabaseConnection
         userTable.setItems(users);
     }
      // Strating For Window open Action Animations :

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import skyglide.classes.DatabaseConnection;
 import javafx.scene.Node;
 
 
@@ -63,6 +65,33 @@ public class Sign implements Initializable{
         stage.setY(130);
         stage.show();
 
+    }
+
+    @FXML
+    void submit(ActionEvent event) throws IOException{
+        String name = Username_Textfield.getText();
+        String password = Password_Textfield.getText();
+        String email = Email_Textfield.getText();
+
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please Fill All DATA");
+            alert.showAndWait();
+        }
+        else{
+            DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+            databaseConnection.adduser(name, password, email);
+
+            Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setTitle("SkyGlide");
+            stage.setX(200);
+            stage.setY(5);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
 

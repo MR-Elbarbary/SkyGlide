@@ -20,13 +20,13 @@
 
 }
 
-#aircraftTable {-fx-background-color : rgba(4, 5, 41, 0.993) ;}
+#aircraftTable {-fx-background-color : rgba(223, 224, 240, 0.993) ;}
 
-#airportsTable { -fx-background-color : rgba(4, 5, 41, 0.993) ; }
+#airportsTable { -fx-background-color : rgba(224, 224, 233, 0.993) ; }
 
-#adminTable { -fx-background-color : rgba(4, 5, 41, 0.993) ;}
+#adminTable { -fx-background-color : rgba(210, 210, 221, 0.993) ;}
 
-#flightsTable { -fx-background-color : rgba(4, 5, 41, 0.993) ;}
+#flightsTable { -fx-background-color : rgba(215, 215, 233, 0.993) ;}
 
-#usersTable {-fx-background-color : rgba(4, 5, 41, 0.993) ;}
+#usersTable {-fx-background-color : rgba(224, 224, 235, 0.993) ;}
 

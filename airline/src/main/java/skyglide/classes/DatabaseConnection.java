@@ -114,4 +114,57 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
     }
+
+    public ObservableList<User> getAlladmins() {
+        ObservableList<User> users = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM admins";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String username = rs.getString("name");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                users.add(new User(id, username, password, email));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            }
+        return users;
+        }
+    
+        public void addadmin(String name, String password, String email){
+            String sql = "INSERT INTO admins(name, email, password) VALUES(?, ?, ?)";
+            try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                pstmt.setString(1, name);
+                pstmt.setString(2, email);
+                pstmt.setString(3, password);
+                pstmt.executeUpdate();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    
+        public void deleteadmin(int id) {
+            String sql = "DELETE FROM admins WHERE id =?";
+            try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                pstmt.setInt(1, id);
+                pstmt.executeUpdate();
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
+        }
+    
+        public void updateadmin(int id, String name, String password, String email) {
+            String sql = "UPDATE admins SET name = ?, password = ?, email = ? WHERE id = ?";
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                pstmt.setString(1, name);
+                pstmt.setString(2, password);
+                pstmt.setString(3, email);
+                pstmt.setInt(4, id);
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 }

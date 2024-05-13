@@ -37,7 +37,7 @@ public class Login {
 
     }
     
-    public void login(){
+    public void login(ActionEvent event) throws IOException{
         String username = usernameField.getText();
         String password = passwordField.getText();
     
@@ -59,6 +59,14 @@ public class Login {
             // Open admin dashboard or perform admin-specific actions
             System.out.println("Admin login successful");
         } else if (databaseConnection.isValidUser(username, password)) {
+            Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setTitle("SkyGlide");
+            stage.setX(200);
+            stage.setY(5);
+            stage.setScene(scene);
+            stage.show();
             // User login successful
             // Open user dashboard or perform user-specific actions
             System.out.println("User login successful");

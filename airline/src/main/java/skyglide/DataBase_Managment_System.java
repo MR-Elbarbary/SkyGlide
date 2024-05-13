@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.System.Logger;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
@@ -16,9 +17,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -80,6 +84,18 @@ public class DataBase_Managment_System implements Initializable{
     @FXML
     private TableView<User> userTable;
 
+    @FXML
+    private TextField useremail;
+
+    @FXML
+    private TextField username;
+
+    @FXML
+    private TextField userpassword;
+
+    @FXML
+    private Button adduser;
+
     ObservableList<User> users = FXCollections.observableArrayList();
 
 
@@ -139,6 +155,76 @@ public class DataBase_Managment_System implements Initializable{
     }
 
     @FXML
+    private void add(ActionEvent event) throws IOException {
+        String name = username.getText();
+        String password = userpassword.getText();
+        String email = useremail.getText();
+
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please Fill All DATA");
+            alert.showAndWait();
+        }
+        else{
+            DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+            databaseConnection.adduser(name, password, email);
+            clean();
+            refreshtable(null);
+        }
+    }
+
+    @FXML
+    private void remove(ActionEvent event) throws IOException{
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
+    if (selectedUser == null) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a user to delete.");
+        alert.showAndWait();
+        return;
+    }
+
+    DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+    databaseConnection.deleteUser(selectedUser.getId());
+    refreshtable(null);
+    }
+
+    @FXML
+    private void clean() {
+        username.setText(null);
+        userpassword.setText(null);
+        useremail.setText(null);
+    }
+
+    @FXML
+private void edit(ActionEvent event) throws IOException {
+    User selectedUser = userTable.getSelectionModel().getSelectedItem();
+    if (selectedUser == null) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText("Please select a user to Edit.");
+        alert.showAndWait();
+        return;
+    }
+
+    String name = username.getText();
+    String password = userpassword.getText();
+    String email = useremail.getText();
+
+    if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText("Please Fill All Data");
+        alert.showAndWait();
+    } else {
+        DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+        databaseConnection.updateUser(selectedUser.getId(), name, password, email);
+        refreshtable(null);
+    }
+}
+
+    @FXML
     private void refreshtable(MouseEvent event) throws IOException{
         users.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
@@ -164,6 +250,14 @@ public class DataBase_Managment_System implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
         load();
+
+        userTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                username.setText(newSelection.getUsername());
+                userpassword.setText(newSelection.getPassword());
+                useremail.setText(newSelection.getEmail());
+            }
+        });
 
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(Left_Pane);

@@ -6,9 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <Pane id="Main_Page" fx:id="Main_Page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1072.0" stylesheets="@DataBase_Managment_System.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skyglide.DataBase_Managment_System">
@@ -23,85 +22,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Pane id="Small_Pane" fx:id="Small_Pane" layoutX="-70.0" layoutY="170.0" prefHeight="386.0" prefWidth="185.0" style="-fx-background-radius: 50;" stylesheets="@DataBase_Managment_System.css">
-               <children>
-                  <Button id="aircraftTable" fx:id="aircraftTable" layoutX="20.0" layoutY="49.0" mnemonicParsing="false" onAction="#showaircrafts" style="-fx-background-radius: 30;" text="aircraftTable" textFill="#0051ff">
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.55">
-                           <color>
-                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button id="airportsTable" fx:id="airportsTable" layoutX="20.0" layoutY="110.0" mnemonicParsing="false" onAction="#showairports" style="-fx-background-radius: 30;" text="airportsTable" textFill="#0051ff">
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.61">
-                           <color>
-                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button id="adminTable" fx:id="adminTable" layoutX="20.0" layoutY="172.0" mnemonicParsing="false" onAction="#showadmin" style="-fx-background-radius: 30;" text="AdminTable" textFill="#0051ff">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.6">
-                           <color>
-                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </Button>
-                  <Button id="flightsTable" fx:id="flightsTable" layoutX="20.0" layoutY="229.0" mnemonicParsing="false" onAction="#showflights" style="-fx-background-radius: 30;" text="flightsTable" textFill="#0051ff">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.61">
-                           <color>
-                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </Button>
-                  <Button id="usersTable" fx:id="usersTable" layoutX="20.0" layoutY="291.0" mnemonicParsing="false" onAction="#showusers" style="-fx-background-radius: 30;" text="usersTable" textFill="#0051ff">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.61">
-                           <color>
-                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </Button>
-               </children>
-            </Pane>
+            <Button fx:id="usersTable" layoutX="45.0" layoutY="103.0" mnemonicParsing="false" onAction="#showusers" text="usersTable" />
+            <Button fx:id="adminTable" layoutX="28.0" layoutY="199.0" mnemonicParsing="false" onAction="#showadmin" text="AdminTable" />
+            <Button fx:id="aircraftTable" layoutX="27.0" layoutY="357.0" mnemonicParsing="false" onAction="#showaircrafts" text="aircraftTable" />
+            <Button fx:id="flightsTable" layoutX="42.0" layoutY="301.0" mnemonicParsing="false" onAction="#showflights" text="flightsTable" />
+            <Button fx:id="airportsTable" layoutX="42.0" layoutY="382.0" mnemonicParsing="false" onAction="#showairports" text="airportsTable" />
          </children>
       </Pane>
       <Label layoutX="259.0" layoutY="22.0" text="DataBase Managment">
@@ -112,22 +37,22 @@
       <Pane layoutX="234.0" layoutY="82.0" prefHeight="3.0" prefWidth="368.0" style="-fx-background-color: black;" />
       <Pane id="Show_Page" fx:id="Show_Page" layoutX="243.0" layoutY="108.0" prefHeight="547.0" prefWidth="786.0" style="-fx-background-radius: 50;">
          <children>
-            <TableView fx:id="userTable" layoutX="14.0" layoutY="64.0" prefHeight="467.0" prefWidth="756.0">
+            <TableView fx:id="userTable" layoutX="14.0" layoutY="64.0" prefHeight="356.0" prefWidth="756.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="nameColumn" prefWidth="209.0" text="Name" />
-                  <TableColumn fx:id="passwordColumn" prefWidth="123.0" text="Password" />
-                  <TableColumn fx:id="emailColumn" prefWidth="185.0" text="Email" />
+                <TableColumn fx:id="nameColumn" prefWidth="134.0" text="Name" />
+                  <TableColumn fx:id="passwordColumn" prefWidth="186.0" text="Password" />
+                  <TableColumn fx:id="emailColumn" prefWidth="231.0" text="Email" />
               </columns>
             </TableView>
-            <FontAwesomeIconView fill="#764cda" glyphName="USER_PLUS" layoutX="33.0" layoutY="41.0" onMouseClicked="#getaddview" size="30" text="">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></FontAwesomeIconView>
-            <FontAwesomeIconView fill="#764cda" glyphName="REFRESH" layoutX="86.0" layoutY="41.0" onMouseClicked="#refreshtable" size="30">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></FontAwesomeIconView>
+            <FontAwesomeIconView fill="#f5f5ef" glyphName="USER_PLUS" layoutX="33.0" layoutY="41.0" onMouseClicked="#getaddview" size="30" text="" />
+            <FontAwesomeIconView fill="#f5f5ef" glyphName="REFRESH" layoutX="86.0" layoutY="41.0" onMouseClicked="#refreshtable" size="30" />
+            <TextField fx:id="username" layoutX="14.0" layoutY="441.0" promptText="Name" />
+            <TextField fx:id="userpassword" layoutX="189.0" layoutY="441.0" promptText="Password" />
+            <TextField fx:id="useremail" layoutX="364.0" layoutY="441.0" promptText="Email" />
+            <Button fx:id="adduser" layoutX="600.0" layoutY="441.0" mnemonicParsing="false" onAction="#add" text="Add" />
+            <Button fx:id="remove" layoutX="600.0" layoutY="496.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
+            <Button fx:id="edit" layoutX="513.0" layoutY="496.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
          </children></Pane>
    </children>
 </Pane>

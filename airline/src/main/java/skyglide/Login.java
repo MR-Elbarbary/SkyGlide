@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import skyglide.classes.DatabaseConnection;
+import skyglide.classes.user.User;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -59,6 +60,7 @@ public class Login {
             // Open admin dashboard or perform admin-specific actions
             System.out.println("Admin login successful");
         } else if (databaseConnection.isValidUser(username, password)) {
+            databaseConnection.logUser(username, password);
             Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

@@ -132,8 +132,8 @@ public class flightTable implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -143,8 +143,8 @@ public class flightTable implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -154,8 +154,8 @@ public class flightTable implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -165,8 +165,8 @@ public class flightTable implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -176,8 +176,8 @@ public class flightTable implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 

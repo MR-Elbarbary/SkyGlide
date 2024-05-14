@@ -13,9 +13,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import skyglide.classes.user.User;
 import javafx.scene.Node;
 
 public class HomePage implements Initializable {
@@ -54,6 +56,9 @@ public class HomePage implements Initializable {
 
     @FXML
     private Pane Moving_Pane;
+
+     @FXML
+    private Label welcome;
 
     // Buttons For Interactiing With Users :
 
@@ -193,6 +198,7 @@ public class HomePage implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
+        welcome.setText("Hi, " + User.getLogedusername());
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(Moving_Pane);
         translate.setDuration(Duration.millis(1500));

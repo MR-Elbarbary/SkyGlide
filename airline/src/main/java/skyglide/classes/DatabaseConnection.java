@@ -10,6 +10,8 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import skyglide.classes.aircraft.Aircraft;
+import skyglide.classes.airport.Airport;
 import skyglide.classes.user.User;
 
 public class DatabaseConnection {
@@ -167,4 +169,111 @@ public class DatabaseConnection {
                 e.printStackTrace();
             }
         }
+
+        public void addairport(String name, String city, String country){
+            String sql = "INSERT INTO Airports(name, city, country) VALUES(?, ?, ?)";
+            try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                pstmt.setString(1, name);
+                pstmt.setString(2, city);
+                pstmt.setString(3, country);
+                pstmt.executeUpdate();
+            } catch(SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public void deleteairport(int id){
+            String sql = "DELETE FROM Airports WHERE id =?";
+            try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                pstmt.setInt(1, id);
+                pstmt.executeUpdate();
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
+        }
+
+        public void updateairports(int id, String name, String city, String country){
+            String sql = "UPDATE Airports SET name = ?, city = ?, country = ? WHERE id = ?";
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                pstmt.setString(1, name);
+                pstmt.setString(2, city);
+                pstmt.setString(3, country);
+                pstmt.setInt(4, id);
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        public ObservableList<Airport> getAllAirports() {
+            ObservableList<Airport> airports = FXCollections.observableArrayList();
+            String sql = "SELECT * FROM Airports";
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                ResultSet rs = pstmt.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String name = rs.getString("name");
+                    String city = rs.getString("city");
+                    String country = rs.getString("country");
+                    airports.add(new Airport(id, name, city, country));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                }
+            return airports;
+            }
+
+
+            public void addaircraft(String name, int capacity, double price){
+                String sql = "INSERT INTO Aircrafts(name, capacity, price) VALUES(?, ?, ?)";
+                try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                    pstmt.setString(1, name);
+                    pstmt.setInt(2, capacity);
+                    pstmt.setDouble(3, price);
+                    pstmt.executeUpdate();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            public void deleteaircraft(int id){
+                String sql = "DELETE FROM Aircrafts WHERE id =?";
+                try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                    pstmt.setInt(1, id);
+                    pstmt.executeUpdate();
+                } catch(SQLException e){
+                    e.printStackTrace();
+                }
+            }
+
+            public void updateaircrafts(int id, String name, int capacity, double price){
+                String sql = "UPDATE Aircrafts SET name = ?, capacity = ?, price = ? WHERE id = ?";
+                try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                    pstmt.setString(1, name);
+                    pstmt.setInt(2, capacity);
+                    pstmt.setDouble(3, price);
+                    pstmt.setInt(4, id);
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            public ObservableList<Aircraft> getAllAircrafts() {
+                ObservableList<Aircraft> aircrafts = FXCollections.observableArrayList();
+                String sql = "SELECT * FROM Aircrafts";
+                try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                    ResultSet rs = pstmt.executeQuery();
+                    while (rs.next()) {
+                        int id = rs.getInt("id");
+                        String name = rs.getString("name");
+                        int capacity = rs.getInt("capacity");
+                        double price = rs.getDouble("price");
+                        aircrafts.add(new Aircraft(id, name, capacity, price));
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    }
+                return aircrafts;
+                }
 }

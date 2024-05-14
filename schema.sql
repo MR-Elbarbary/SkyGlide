@@ -16,7 +16,8 @@ CREATE TABLE admins (
 CREATE TABLE Airports (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
-    location TEXT NOT NULL
+    city TEXT NOT NULL,
+    country TEXT NOT NULL
 );
 
 CREATE TABLE Aircrafts (

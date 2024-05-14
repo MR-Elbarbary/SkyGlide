@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane id="Main_Page" fx:id="Main_Page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1072.0" stylesheets="@DataBase_Managment_System.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skyglide.airportTable">
+   <children>
+      <Pane id="Left_Pane" fx:id="Left_Pane" layoutX="-180.0" prefHeight="675.0" prefWidth="200.0" style="-fx-background-radius: 60;">
+         <children>
+            <Button id="Back" fx:id="Back" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onAction="#Back" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="usersTable" layoutX="45.0" layoutY="103.0" mnemonicParsing="false" onAction="#showusers" text="usersTable" />
+            <Button fx:id="adminTable" layoutX="28.0" layoutY="199.0" mnemonicParsing="false" onAction="#showadmin" text="AdminTable" />
+            <Button fx:id="aircraftTable" layoutX="27.0" layoutY="357.0" mnemonicParsing="false" onAction="#showaircrafts" text="aircraftTable" />
+            <Button fx:id="flightsTable" layoutX="42.0" layoutY="301.0" mnemonicParsing="false" onAction="#showflights" text="flightsTable" />
+            <Button fx:id="airportsTable" layoutX="42.0" layoutY="382.0" mnemonicParsing="false" onAction="#showairports" text="airportsTable" />
+         </children>
+      </Pane>
+      <Label layoutX="259.0" layoutY="22.0" text="DataBase Managment">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Pane layoutX="234.0" layoutY="82.0" prefHeight="3.0" prefWidth="368.0" style="-fx-background-color: black;" />
+      <Pane id="Show_Page" fx:id="Show_Page" layoutX="243.0" layoutY="108.0" prefHeight="547.0" prefWidth="786.0" style="-fx-background-radius: 50;">
+         <children>
+            <TableView fx:id="Table" layoutX="14.0" layoutY="64.0" prefHeight="356.0" prefWidth="756.0">
+              <columns>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="134.0" text="Name" />
+                  <TableColumn fx:id="cityColumn" prefWidth="186.0" text="City" />
+                  <TableColumn fx:id="countryColumn" prefWidth="231.0" text="Country" />
+              </columns>
+            </TableView>
+            <TextField fx:id="namef" layoutX="14.0" layoutY="441.0" promptText="Name" />
+            <TextField fx:id="cityf" layoutX="189.0" layoutY="441.0" promptText="City" />
+            <TextField fx:id="countryf" layoutX="364.0" layoutY="441.0" promptText="Country" />
+            <Button fx:id="addrow" layoutX="600.0" layoutY="441.0" mnemonicParsing="false" onAction="#add" text="Add" />
+            <Button fx:id="remove" layoutX="600.0" layoutY="496.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
+            <Button fx:id="edit" layoutX="513.0" layoutY="496.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
+            <Label layoutX="32.0" layoutY="14.0" text="Airports Table" textFill="#f8efef">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</Pane>

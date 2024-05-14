@@ -20,15 +20,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+
 import javafx.util.Duration;
 import skyglide.classes.DatabaseConnection;
-import skyglide.classes.user.User;
+import skyglide.classes.aircraft.Aircraft;
 
-public class DataBase_Managment_System implements Initializable{
+public class aircraftTable implements Initializable{
 
     /*
     Controlling Variables Giving It's FX:ID
@@ -66,33 +65,33 @@ public class DataBase_Managment_System implements Initializable{
     private Button usersTable;
 
     @FXML
-    private TableColumn<User, String> emailColumn;
+    private TableColumn<Aircraft, Integer> capacityColumn;
 
     @FXML
-    private TableColumn<User, Integer> idColumn;
+    private TableColumn<Aircraft, Integer> idColumn;
 
     @FXML
-    private TableColumn<User, String> nameColumn;
+    private TableColumn<Aircraft, String> nameColumn;
 
     @FXML
-    private TableColumn<User, String> passwordColumn;
+    private TableColumn<Aircraft, Double> priceColumn;
 
     @FXML
-    private TableView<User> userTable;
+    private TableView<Aircraft> Table;
 
     @FXML
-    private TextField useremail;
+    private TextField capacityf;
 
     @FXML
-    private TextField username;
+    private TextField namef;
 
     @FXML
-    private TextField userpassword;
+    private TextField pricef;
 
     @FXML
-    private Button adduser;
+    private Button add;
 
-    ObservableList<User> users = FXCollections.observableArrayList();
+    ObservableList<Aircraft> aircrafts = FXCollections.observableArrayList();
 
 
     // Buttons For Interactiing With Users :
@@ -161,26 +160,23 @@ public class DataBase_Managment_System implements Initializable{
     }
 
     @FXML
-    private void getaddview(MouseEvent event) throws IOException{
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("adduser.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @FXML
     private void add(ActionEvent event) throws IOException {
-        String name = username.getText();
-        String password = userpassword.getText();
-        String email = useremail.getText();
+        String name = namef.getText();
+        int capacity ;
+        double price ;
 
-        if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+        try {
+            capacity = Integer.parseInt(capacityf.getText());
+            price = Double.parseDouble(pricef.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid number for capacity and price.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (name.isEmpty() || capacity <= 0 || price <= 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Fill All DATA");
@@ -188,81 +184,92 @@ public class DataBase_Managment_System implements Initializable{
         }
         else{
             DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-            databaseConnection.adduser(name, password, email);
+            databaseConnection.addaircraft(name, capacity, price);
             clean();
-            refreshtable(null);
+            refreshtable();
         }
     }
 
     @FXML
     private void remove(ActionEvent event) throws IOException{
-        User selectedUser = userTable.getSelectionModel().getSelectedItem();
-    if (selectedUser == null) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setContentText("Please select a user to delete.");
-        alert.showAndWait();
-        return;
-    }
+        Aircraft selectedrow = Table.getSelectionModel().getSelectedItem();
+        if (selectedrow == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an aircraft to delete.");
+            alert.showAndWait();
+            return;
+        }
 
-    DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-    databaseConnection.deleteUser(selectedUser.getId());
-    refreshtable(null);
+        DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+        databaseConnection.deleteairport(selectedrow.getId());
+        refreshtable();
     }
 
     @FXML
     private void clean() {
-        username.setText(null);
-        userpassword.setText(null);
-        useremail.setText(null);
+        namef.setText(null);
+        capacityf.setText(null);
+        pricef.setText(null);
     }
 
     @FXML
-private void edit(ActionEvent event) throws IOException {
-    User selectedUser = userTable.getSelectionModel().getSelectedItem();
-    if (selectedUser == null) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setContentText("Please select a user to Edit.");
-        alert.showAndWait();
-        return;
-    }
+    private void edit(ActionEvent event) throws IOException {
+        Aircraft selectedrow = Table.getSelectionModel().getSelectedItem();
+        if (selectedrow == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please select an aircraft to Edit.");
+            alert.showAndWait();
+            return;
+        }
 
-    String name = username.getText();
-    String password = userpassword.getText();
-    String email = useremail.getText();
+        String name = namef.getText();
+        int capacity;
+        double price;
+        try {
+            capacity = Integer.parseInt(capacityf.getText());
+            price = Double.parseDouble(pricef.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid number for capacity and price.");
+            alert.showAndWait();
+            return;
+        }
 
-    if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setContentText("Please Fill All Data");
-        alert.showAndWait();
-    } else {
-        DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        databaseConnection.updateUser(selectedUser.getId(), name, password, email);
-        refreshtable(null);
+        if (name.isEmpty() || capacity <= 0 || price <= 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please Fill All DATA AND NO NEGATIVE NUMBERS");
+            alert.showAndWait();
+        }
+        else{
+            DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+            databaseConnection.updateaircrafts(selectedrow.getId(), name, capacity, price);
+            refreshtable();
+        }
     }
-}
 
     @FXML
-    private void refreshtable(MouseEvent event) throws IOException{
-        users.clear();
+    private void refreshtable() throws IOException{
+        aircrafts.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        users = databaseConnection.getAllUsers(); // Implement this method in DatabaseConnection
-        userTable.setItems(users);
+        aircrafts = databaseConnection.getAllAircrafts(); // Implement this method in DatabaseConnection
+        Table.setItems(aircrafts);
 
     }
 
     private void load() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
-        passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         // Load data from the database and populate the table
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        users = databaseConnection.getAllUsers(); // Implement this method in DatabaseConnection
-        userTable.setItems(users);
+        aircrafts = databaseConnection.getAllAircrafts(); // Implement this method in DatabaseConnection
+        Table.setItems(aircrafts);
     }
      // Strating For Window open Action Animations :
 
@@ -271,11 +278,11 @@ private void edit(ActionEvent event) throws IOException {
 
         load();
 
-        userTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        Table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                username.setText(newSelection.getUsername());
-                userpassword.setText(newSelection.getPassword());
-                useremail.setText(newSelection.getEmail());
+                namef.setText(newSelection.getName());
+                capacityf.setText(String.valueOf(newSelection.getCapacity()));
+                pricef.setText(String.valueOf(newSelection.getPrice()));
             }
         });
 

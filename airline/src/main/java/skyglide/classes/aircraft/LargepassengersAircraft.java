@@ -4,10 +4,9 @@ import skyglide.classes.cabin.Cabin;
 import skyglide.classes.engine.Engine;
 
 public class LargepassengersAircraft extends PassengersAircraft {
-    public LargepassengersAircraft(String name, String plate, Cabin cabin, Engine engine){
-        setName(name);
-        setPlate(plate);
-        setCabin(cabin);
-        setEngine(engine);
+
+    public LargepassengersAircraft(int id, String name, int capacity, double price) {
+        super(id, name, capacity, price);
+        //TODO Auto-generated constructor stub
     }
-}
+    }

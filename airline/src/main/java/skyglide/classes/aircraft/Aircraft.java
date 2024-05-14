@@ -1,27 +1,42 @@
 package skyglide.classes.aircraft;
-
-import skyglide.classes.engine.Engine;
-
-public abstract class Aircraft {
+public class Aircraft {
+    private int id;
     private String name;
-    private String plate;
-    private Engine engine;
+    private int capacity;
+    private double price;
+
+    public Aircraft(int id, String name, int capacity, double price){
+        setId(id);
+        setCapacity(capacity);
+        setName(name);
+        setPrice(price);
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
-    }
-    public String getPlate() {
-        return plate;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setPlate(String plate) {
-        this.plate = plate;
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
-    public void setEngine(Engine engine) {
-        this.engine = engine;
+    public int getCapacity() {
+        return capacity;
     }
-    public Engine getEngine() {
-        return engine;
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public double getPrice() {
+        return price;
     }
 }

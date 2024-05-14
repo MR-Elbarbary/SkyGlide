@@ -1,10 +1,7 @@
 package skyglide;
 
 import java.io.IOException;
-import java.lang.System.Logger;
 import java.net.URL;
-import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
@@ -19,15 +16,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+
 import javafx.util.Duration;
 import skyglide.classes.DatabaseConnection;
 import skyglide.classes.user.User;
@@ -139,12 +134,24 @@ public class AdminTable implements Initializable{
 
     @FXML
     void showairports(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getResource("airportTable.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setX(350);
+        stage.setY(130);
+        stage.show();
     }
 
     @FXML
     void showaircrafts(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getResource("AircraftTable.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setX(350);
+        stage.setY(130);
+        stage.show();
     }
 
     @FXML

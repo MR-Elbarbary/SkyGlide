@@ -80,7 +80,7 @@ public class User {
         return logedusername;
     }
 
-    public void logout(){
+    public static void logout(){
         logedemail = "";
         logedid = 0;
         logedpassword = "";

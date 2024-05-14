@@ -17,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import skyglide.classes.DatabaseConnection;
+import skyglide.classes.user.User;
 import javafx.scene.Node;
 
 
@@ -110,6 +111,8 @@ public class Sign implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+        User.logout();
 
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(Welcome);

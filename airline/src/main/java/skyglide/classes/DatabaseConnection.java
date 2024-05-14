@@ -399,5 +399,15 @@ public class DatabaseConnection {
             return airports;
             }
             
-
+            public void addticket(int user_id, int flight_id, double price){
+                String sql = "INSERT INTO Tickets(user_id, flight_id, price) VALUES (?, ?, ?)";
+                try(PreparedStatement pstmt = connection.prepareStatement(sql)){
+                    pstmt.setInt(1, user_id);
+                    pstmt.setInt(2, flight_id);
+                    pstmt.setDouble(3, price);
+                    pstmt.executeUpdate();
+                } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
 }

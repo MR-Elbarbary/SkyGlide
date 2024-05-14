@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -37,6 +38,12 @@ public class DataBase_Managment_System implements Initializable{
 
     @FXML
     private Button Back;
+
+    @FXML
+    private Label Label1;
+
+    @FXML
+    private Label Label2;
 
     @FXML
     private Pane Left_Pane;
@@ -104,9 +111,9 @@ public class DataBase_Managment_System implements Initializable{
          Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          Scene scene = new Scene(root);
          stage.setTitle("SkyGlide");
+         stage.setScene(scene);
          stage.setX(200);
          stage.setY(5);
-         stage.setScene(scene);
          stage.show();
 
     }
@@ -117,8 +124,8 @@ public class DataBase_Managment_System implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -128,8 +135,8 @@ public class DataBase_Managment_System implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -139,8 +146,8 @@ public class DataBase_Managment_System implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -150,8 +157,8 @@ public class DataBase_Managment_System implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -161,8 +168,8 @@ public class DataBase_Managment_System implements Initializable{
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
@@ -324,8 +331,21 @@ private void edit(ActionEvent event) throws IOException {
         TranslateTransition translate6 = new TranslateTransition();
         translate6.setNode(Small_Pane);
         translate6.setDuration(Duration.millis(2000));
-        translate6.setByX(75);
+        translate6.setByX(90);
         translate6.play();
+
+        TranslateTransition translate7 = new TranslateTransition();
+        translate7.setNode(Label1);
+        translate7.setDuration(Duration.millis(2000));
+        translate7.setByX(120);
+        translate7.play();
+
+        TranslateTransition translate8 = new TranslateTransition();
+        translate8.setNode(Label2);
+        translate8.setDuration(Duration.millis(2000));
+        translate8.setByX(160);
+        translate8.play();
+
 
     }
 

@@ -7,7 +7,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <Pane id="Main_Page" fx:id="Main_Page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1072.0" stylesheets="@DataBase_Managment_System.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="skyglide.DataBase_Managment_System">
@@ -22,11 +27,97 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="usersTable" layoutX="45.0" layoutY="103.0" mnemonicParsing="false" onAction="#showusers" text="usersTable" />
-            <Button fx:id="adminTable" layoutX="28.0" layoutY="199.0" mnemonicParsing="false" onAction="#showadmin" text="AdminTable" />
-            <Button fx:id="aircraftTable" layoutX="27.0" layoutY="357.0" mnemonicParsing="false" onAction="#showaircrafts" text="aircraftTable" />
-            <Button fx:id="flightsTable" layoutX="42.0" layoutY="301.0" mnemonicParsing="false" onAction="#showflights" text="flightsTable" />
-            <Button fx:id="airportsTable" layoutX="42.0" layoutY="382.0" mnemonicParsing="false" onAction="#showairports" text="airportsTable" />
+            <Pane id="Small_Pane" fx:id="Small_Pane" layoutX="-100.0" layoutY="235.0" prefHeight="345.0" prefWidth="172.0" style="-fx-background-color: rgba(3, 9, 63, 0.993); -fx-background-radius: 40;">
+               <children>
+                  <Button fx:id="usersTable" layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#showusers" style="-fx-background-radius: 30; -fx-background-color: rgba(34, 3, 63, 0.993);" text="usersTable" textFill="#0051ff">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow spread="0.76">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="adminTable" layoutX="7.0" layoutY="83.0" mnemonicParsing="false" onAction="#showadmin" style="-fx-background-radius: 30; -fx-background-color: rgba(34, 3, 63, 0.993);" text="AdminTable" textFill="#0051ff">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow spread="0.76">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="flightsTable" layoutX="18.0" layoutY="145.0" mnemonicParsing="false" onAction="#showflights" style="-fx-background-radius: 30; -fx-background-color: rgba(34, 3, 63, 0.993);" text="flightsTable" textFill="#0051ff">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow spread="0.75">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="aircraftTable" layoutX="14.0" layoutY="205.0" mnemonicParsing="false" onAction="#showaircrafts" style="-fx-background-radius: 30; -fx-background-color: rgba(34, 3, 63, 0.993);" text="aircraftTable" textFill="#0051ff">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow spread="0.75">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="airportsTable" layoutX="12.0" layoutY="262.0" mnemonicParsing="false" onAction="#showairports" style="-fx-background-radius: 30; -fx-background-color: rgba(34, 3, 63, 0.993);" text="airportsTable" textFill="#0051ff">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow spread="0.75">
+                           <color>
+                              <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+               </children>
+            </Pane>
+            <Label fx:id="Label1" layoutX="-100.0" layoutY="124.0" text="Contrlolling " textFill="#150bda">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="Label2" layoutX="-120.0" layoutY="159.0" text="Data" textFill="#150bda">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="118.0" fitWidth="91.0" layoutX="86.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Screenshot%20(293).png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Label layoutX="259.0" layoutY="22.0" text="DataBase Managment">
@@ -45,14 +136,89 @@
                   <TableColumn fx:id="emailColumn" prefWidth="231.0" text="Email" />
               </columns>
             </TableView>
-            <FontAwesomeIconView fill="#f5f5ef" glyphName="USER_PLUS" layoutX="33.0" layoutY="41.0" onMouseClicked="#getaddview" size="30" text="" />
-            <FontAwesomeIconView fill="#f5f5ef" glyphName="REFRESH" layoutX="86.0" layoutY="41.0" onMouseClicked="#refreshtable" size="30" />
-            <TextField fx:id="username" layoutX="14.0" layoutY="441.0" promptText="Name" />
-            <TextField fx:id="userpassword" layoutX="189.0" layoutY="441.0" promptText="Password" />
-            <TextField fx:id="useremail" layoutX="364.0" layoutY="441.0" promptText="Email" />
-            <Button fx:id="adduser" layoutX="600.0" layoutY="441.0" mnemonicParsing="false" onAction="#add" text="Add" />
-            <Button fx:id="remove" layoutX="600.0" layoutY="496.0" mnemonicParsing="false" onAction="#remove" text="Remove" />
-            <Button fx:id="edit" layoutX="513.0" layoutY="496.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
-         </children></Pane>
+            <FontAwesomeIconView fill="#7533c6" glyphName="USER_PLUS" layoutX="33.0" layoutY="41.0" onMouseClicked="#getaddview" size="30" text="">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></FontAwesomeIconView>
+            <FontAwesomeIconView fill="#7533c6" glyphName="REFRESH" layoutX="86.0" layoutY="41.0" onMouseClicked="#refreshtable" size="30" />
+            <TextField fx:id="username" layoutX="14.0" layoutY="441.0" promptText="Name" style="-fx-background-radius: 40;">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <effect>
+                  <InnerShadow height="35.66" radius="13.665">
+                     <color>
+                        <Color red="0.11764705926179886" green="0.007843137718737125" blue="0.3803921639919281" />
+                     </color>
+                  </InnerShadow>
+               </effect></TextField>
+            <TextField fx:id="userpassword" layoutX="189.0" layoutY="441.0" promptText="Password" style="-fx-background-radius: 40;">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <effect>
+                  <InnerShadow height="32.72" radius="12.93">
+                     <color>
+                        <Color red="0.11764705926179886" green="0.007843137718737125" blue="0.3803921639919281" />
+                     </color>
+                  </InnerShadow>
+               </effect></TextField>
+            <TextField fx:id="useremail" layoutX="364.0" layoutY="441.0" promptText="Email" style="-fx-background-radius: 40;">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <effect>
+                  <InnerShadow height="35.66" radius="13.665">
+                     <color>
+                        <Color red="0.11764705926179886" green="0.007843137718737125" blue="0.3803921639919281" />
+                     </color>
+                  </InnerShadow>
+               </effect></TextField>
+            <Button fx:id="adduser" layoutX="549.0" layoutY="434.0" mnemonicParsing="false" onAction="#add" prefHeight="33.0" prefWidth="61.0" style="-fx-background-radius: 30; -fx-background-color: rgba(4, 5, 41, 0.993);" text="Add" textFill="#0051ff">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow spread="0.56">
+                     <color>
+                        <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                     </color>
+                  </DropShadow>
+               </effect></Button>
+            <Button fx:id="remove" layoutX="640.0" layoutY="434.0" mnemonicParsing="false" onAction="#remove" style="-fx-background-color: rgba(4, 5, 41, 0.993); -fx-background-radius: 30;" text="Remove" textFill="#0051ff">
+               <effect>
+                  <DropShadow spread="0.59">
+                     <color>
+                        <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Button>
+            <Button fx:id="edit" layoutX="551.0" layoutY="485.0" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: rgba(4, 5, 41, 0.993); -fx-background-radius: 39;" text="Edit" textFill="#0051ff">
+               <effect>
+                  <DropShadow spread="0.6">
+                     <color>
+                        <Color red="0.05882352963089943" green="0.05098039284348488" blue="0.5411764979362488" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Button>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Pane>
    </children>
 </Pane>

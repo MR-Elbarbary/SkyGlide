@@ -161,6 +161,7 @@ public class flightTable implements Initializable{
 
     @FXML
     void showaircrafts(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("aircraftTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -172,6 +173,7 @@ public class flightTable implements Initializable{
 
     @FXML
     void showflights(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("flightTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -183,6 +185,7 @@ public class flightTable implements Initializable{
 
     @FXML
     private void add(ActionEvent event) throws IOException {
+
         String arrival = arrivalc.getSelectionModel().getSelectedItem();
         String departure = departurec.getSelectionModel().getSelectedItem();
         double price;
@@ -216,8 +219,11 @@ public class flightTable implements Initializable{
 
     @FXML
     private void remove(ActionEvent event) throws IOException{
+
         flight selectedrow = Table.getSelectionModel().getSelectedItem();
+
         if (selectedrow == null) {
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please select an airport to delete.");
@@ -232,13 +238,16 @@ public class flightTable implements Initializable{
 
     @FXML
     private void clean() {
+
         pricef.setText(null);
         datef.setText(null);
     }
 
     @FXML
-private void edit(ActionEvent event) throws IOException {
+    private void edit(ActionEvent event) throws IOException {
+
     flight selectedrow = Table.getSelectionModel().getSelectedItem();
+
     if (selectedrow == null) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
@@ -279,7 +288,8 @@ private void edit(ActionEvent event) throws IOException {
 }
 
     @FXML
-    private void refreshtable() throws IOException{
+    private void refreshtable() throws IOException {
+
         flights.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
         flights = databaseConnection.getAllFlights(); // Implement this method in DatabaseConnection
@@ -287,6 +297,7 @@ private void edit(ActionEvent event) throws IOException {
     }
 
     private void load() {
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));

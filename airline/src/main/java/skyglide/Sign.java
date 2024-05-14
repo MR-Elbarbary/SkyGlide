@@ -21,7 +21,7 @@ import skyglide.classes.user.User;
 import javafx.scene.Node;
 
 
-public class Sign implements Initializable{
+public class Sign implements Initializable {
 
    /*
     Controlling Variables Giving It's FX:ID
@@ -56,7 +56,7 @@ public class Sign implements Initializable{
      // Buttons For Interactiing With Users :
 
     @FXML
-    void Return_Back_Previous_Page(ActionEvent event) throws IOException{
+    void Return_Back_Previous_Page(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -69,7 +69,7 @@ public class Sign implements Initializable{
     }
 
     @FXML
-    void submit(ActionEvent event) throws IOException{
+    void submit(ActionEvent event) throws IOException {
         String name = Username_Textfield.getText();
         String password = Password_Textfield.getText();
         String email = Email_Textfield.getText();
@@ -132,8 +132,5 @@ public class Sign implements Initializable{
         translate3.setByY(100);
         translate3.play();
 
-
     }
-
-
 }

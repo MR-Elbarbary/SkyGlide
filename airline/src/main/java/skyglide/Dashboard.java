@@ -28,6 +28,8 @@ public class Dashboard implements Initializable{
     @FXML
     private Pane Main_Page;
 
+    // Buttons For Interactiing With Users :
+
     @FXML
     void Back(ActionEvent event) throws IOException {
 
@@ -49,10 +51,7 @@ public class Dashboard implements Initializable{
         translate.setNode(Left_Pane);
         translate.setDuration(Duration.millis(1000));
         translate.setByX(170);
-        translate.play();        
-
-        
-    
+        translate.play();            
     }
 
 }

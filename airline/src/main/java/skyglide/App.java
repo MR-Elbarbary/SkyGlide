@@ -18,6 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
+        
         scene = new Scene(loadFXML("Scene1"));
         Image icon = new Image(getClass().getResourceAsStream("skyglide.png"));
         stage.setScene(scene);

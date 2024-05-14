@@ -100,6 +100,7 @@ public class Checking_Flights implements Initializable {
     
     @FXML
     void book(ActionEvent event) {
+
         flight selectedrow = Table.getSelectionModel().getSelectedItem();
     if (selectedrow == null) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -119,6 +120,7 @@ public class Checking_Flights implements Initializable {
     }
 
     private void load() {
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
@@ -135,6 +137,7 @@ public class Checking_Flights implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        
         load();
         
         TranslateTransition translate = new TranslateTransition();

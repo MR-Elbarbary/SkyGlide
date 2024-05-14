@@ -57,7 +57,7 @@ public class HomePage implements Initializable {
     @FXML
     private Pane Moving_Pane;
 
-     @FXML
+    @FXML
     private Label welcome;
 
     // Buttons For Interactiing With Users :

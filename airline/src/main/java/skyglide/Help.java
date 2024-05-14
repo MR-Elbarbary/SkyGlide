@@ -29,8 +29,7 @@ public class Help implements Initializable {
     @FXML
     private Label Third_Label;
 
-
-
+    
 
     @FXML
     void Return_Back_Previous_Page(ActionEvent event) throws IOException {

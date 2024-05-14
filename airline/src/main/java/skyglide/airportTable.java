@@ -112,6 +112,7 @@ public class airportTable implements Initializable{
 
     @FXML
     void showadmin(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("AdminTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -123,6 +124,7 @@ public class airportTable implements Initializable{
 
     @FXML
     void showusers(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("DataBase_Managment_System.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -134,6 +136,7 @@ public class airportTable implements Initializable{
 
     @FXML
     void showairports(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("airportTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -145,6 +148,7 @@ public class airportTable implements Initializable{
 
     @FXML
     void showaircrafts(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("aircraftTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -156,6 +160,7 @@ public class airportTable implements Initializable{
 
     @FXML
     void showflights(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("flightTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -167,6 +172,7 @@ public class airportTable implements Initializable{
 
     @FXML
     private void add(ActionEvent event) throws IOException {
+
         String name = namef.getText();
         String city = cityf.getText();
         String country = countryf.getText();
@@ -187,6 +193,7 @@ public class airportTable implements Initializable{
 
     @FXML
     private void remove(ActionEvent event) throws IOException{
+
         Airport selectedrow = Table.getSelectionModel().getSelectedItem();
         if (selectedrow == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -203,13 +210,15 @@ public class airportTable implements Initializable{
 
     @FXML
     private void clean() {
+
         namef.setText(null);
         cityf.setText(null);
         countryf.setText(null);
     }
 
     @FXML
-private void edit(ActionEvent event) throws IOException {
+    private void edit(ActionEvent event) throws IOException {
+
     Airport selectedrow = Table.getSelectionModel().getSelectedItem();
     if (selectedrow == null) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -237,6 +246,7 @@ private void edit(ActionEvent event) throws IOException {
 
     @FXML
     private void refreshtable() throws IOException{
+
         airports.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
         airports = databaseConnection.getAllAirports(); // Implement this method in DatabaseConnection
@@ -245,6 +255,7 @@ private void edit(ActionEvent event) throws IOException {
     }
 
     private void load() {
+        
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));

@@ -112,72 +112,81 @@ public class AdminTable implements Initializable{
 
     @FXML
     void showadmin(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("AdminTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
     @FXML
     void showusers(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("DataBase_Managment_System.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
     @FXML
     void showairports(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("airportTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
     @FXML
     void showaircrafts(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("AircraftTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
     @FXML
     void showflights(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("flightTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setX(350);
-        stage.setY(130);
+        stage.setX(200);
+        stage.setY(5);
         stage.show();
     }
 
     @FXML
     private void add(ActionEvent event) throws IOException {
+
         String name = username.getText();
         String password = userpassword.getText();
         String email = useremail.getText();
 
         if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Fill All DATA");
             alert.showAndWait();
         }
+
         else{
+
             DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
             databaseConnection.addadmin(name, password, email);
             clean();
@@ -187,8 +196,11 @@ public class AdminTable implements Initializable{
 
     @FXML
     private void remove(ActionEvent event) throws IOException{
+
         User selectedUser = userTable.getSelectionModel().getSelectedItem();
+
     if (selectedUser == null) {
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText("Please select a user to delete.");
@@ -199,19 +211,24 @@ public class AdminTable implements Initializable{
     DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
     databaseConnection.deleteadmin(selectedUser.getId());
     refreshtable();
+
     }
 
     @FXML
     private void clean() {
+
         username.setText(null);
         userpassword.setText(null);
         useremail.setText(null);
     }
 
     @FXML
-private void edit(ActionEvent event) throws IOException {
+    private void edit(ActionEvent event) throws IOException {
+
     User selectedUser = userTable.getSelectionModel().getSelectedItem();
+
     if (selectedUser == null) {
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText("Please select a user to Edit.");
@@ -224,6 +241,7 @@ private void edit(ActionEvent event) throws IOException {
     String email = useremail.getText();
 
     if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText("Please Fill All Data");
@@ -237,6 +255,7 @@ private void edit(ActionEvent event) throws IOException {
 
     @FXML
     private void refreshtable() throws IOException{
+
         users.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
         users = databaseConnection.getAlladmins(); // Implement this method in DatabaseConnection
@@ -245,6 +264,7 @@ private void edit(ActionEvent event) throws IOException {
     }
 
     private void load() {
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("username"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<>("password"));
@@ -255,6 +275,7 @@ private void edit(ActionEvent event) throws IOException {
         users = databaseConnection.getAlladmins(); // Implement this method in DatabaseConnection
         userTable.setItems(users);
     }
+    
      // Strating For Window open Action Animations :
 
     @Override

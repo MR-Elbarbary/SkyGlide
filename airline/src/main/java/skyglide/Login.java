@@ -18,6 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 
 public class Login {
+
     @FXML
     private TextField usernameField;
 
@@ -26,6 +27,8 @@ public class Login {
 
     @FXML
     private PasswordField passwordField;
+
+    // Buttons For Interactiing With Users :
 
     @FXML
     void Return_Back_Previous_Page(ActionEvent event) throws IOException{
@@ -55,6 +58,8 @@ public class Login {
                 Stage stage = (Stage) usernameField.getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
+                stage.setX(200);
+                stage.setY(5);
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();

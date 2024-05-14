@@ -112,6 +112,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     void showadmin(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("AdminTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -123,6 +124,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     void showusers(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("DataBase_Managment_System.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -134,6 +136,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     void showairports(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("airportTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -145,6 +148,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     void showaircrafts(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("AircraftTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -156,6 +160,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     void showflights(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("flightTable.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -167,6 +172,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     private void add(ActionEvent event) throws IOException {
+
         String name = namef.getText();
         int capacity ;
         double price ;
@@ -198,6 +204,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     private void remove(ActionEvent event) throws IOException{
+
         Aircraft selectedrow = Table.getSelectionModel().getSelectedItem();
         if (selectedrow == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -214,6 +221,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     private void clean() {
+
         namef.setText(null);
         capacityf.setText(null);
         pricef.setText(null);
@@ -221,6 +229,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     private void edit(ActionEvent event) throws IOException {
+
         Aircraft selectedrow = Table.getSelectionModel().getSelectedItem();
         if (selectedrow == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -259,6 +268,7 @@ public class aircraftTable implements Initializable{
 
     @FXML
     private void refreshtable() throws IOException{
+
         aircrafts.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
         aircrafts = databaseConnection.getAllAircrafts(); // Implement this method in DatabaseConnection
@@ -267,6 +277,7 @@ public class aircraftTable implements Initializable{
     }
 
     private void load() {
+        
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         capacityColumn.setCellValueFactory(new PropertyValueFactory<>("capacity"));

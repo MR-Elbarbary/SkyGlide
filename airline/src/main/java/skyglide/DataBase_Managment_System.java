@@ -189,11 +189,13 @@ public class DataBase_Managment_System implements Initializable{
 
     @FXML
     private void add(ActionEvent event) throws IOException {
+
         String name = username.getText();
         String password = userpassword.getText();
         String email = useremail.getText();
 
         if (name.isEmpty() || password.isEmpty() || email.isEmpty()) {
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Fill All DATA");
@@ -231,7 +233,8 @@ public class DataBase_Managment_System implements Initializable{
     }
 
     @FXML
-private void edit(ActionEvent event) throws IOException {
+    private void edit(ActionEvent event) throws IOException {
+
     User selectedUser = userTable.getSelectionModel().getSelectedItem();
     if (selectedUser == null) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

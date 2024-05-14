@@ -29,7 +29,7 @@ public class Scene1 implements Initializable {
     Controller Class For Scene1 (Connected To FXML Files)
     */
 
-     @FXML
+    @FXML
     private Label Label1;
 
     @FXML
@@ -76,7 +76,7 @@ public class Scene1 implements Initializable {
     }
 
     @FXML
-    void Sign_As_Admin(ActionEvent event) throws IOException{
+    void Sign_As_Admin(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("AdminPage.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -93,7 +93,7 @@ public class Scene1 implements Initializable {
 
    
     @FXML
-    void Sign_In(ActionEvent event) throws IOException{
+    void Sign_In(ActionEvent event) throws IOException {
 
          Parent root = FXMLLoader.load(getClass().getResource("Sign.fxml"));
          Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

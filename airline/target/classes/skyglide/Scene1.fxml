@@ -33,7 +33,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button id="Logout" fx:id="Sign_in" alignment="CENTER" layoutX="267.0" layoutY="159.0" mnemonicParsing="false" onAction="#Sign_In" prefHeight="45.0" prefWidth="103.0" style="-fx-background-radius: 22;" text="Sign in" textFill="#fcfcfc">
+            <Button id="Logout" fx:id="Sign_in" alignment="CENTER" layoutX="38.0" layoutY="170.0" mnemonicParsing="false" onAction="#Sign_In" prefHeight="45.0" prefWidth="103.0" style="-fx-background-radius: 22;" text="Sign in" textFill="#fcfcfc">
                <font>
                   <Font name="System Italic" size="10.0" />
                </font>
@@ -48,7 +48,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button id="Logout" fx:id="Login" alignment="CENTER" layoutX="267.0" layoutY="215.0" mnemonicParsing="false" onAction="#Login" prefHeight="45.0" prefWidth="103.0" style="-fx-background-radius: 22;" stylesheets="@Scene1.css" text="Login" textFill="#fcfcfc">
+            <Button id="Logout" fx:id="Login" alignment="CENTER" layoutX="28.0" layoutY="237.0" mnemonicParsing="false" onAction="#Login" prefHeight="45.0" prefWidth="103.0" style="-fx-background-radius: 22;" stylesheets="@Scene1.css" text="Login" textFill="#fcfcfc">
                <font>
                   <Font name="System Italic" size="10.0" />
                </font>
@@ -87,41 +87,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button id="Logout" fx:id="HomePage" alignment="CENTER" layoutX="14.0" layoutY="311.0" mnemonicParsing="false" onAction="#Home_Page" prefHeight="45.0" prefWidth="149.0" style="-fx-background-radius: 22;" stylesheets="@Scene1.css" text="Home Page" textFill="#fcfcfc">
-               <font>
-                  <Font name="System Italic" size="10.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow spread="0.82">
-                     <color>
-                        <Color red="0.1568627506494522" green="0.1921568661928177" blue="0.8705882430076599" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
-            <Label layoutX="14.0" layoutY="272.0" prefHeight="39.0" prefWidth="78.0" text="Visit Us !">
-               <font>
-                  <Font name="System Italic" size="18.0" />
-               </font>
-            </Label>
-            <Button id="Logout" fx:id="Sign_Admin" alignment="CENTER" layoutX="65.0" layoutY="159.0" mnemonicParsing="false" onAction="#Sign_As_Admin" prefHeight="45.0" prefWidth="165.0" style="-fx-background-radius: 22;" text="Sign As Admin" textFill="#fcfcfc">
-               <font>
-                  <Font name="System Italic" size="10.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <effect>
-                  <DropShadow spread="0.74">
-                     <color>
-                        <Color red="0.12280701845884323" green="0.18165205419063568" blue="0.8289473652839661" />
-                     </color>
-                  </DropShadow>
-               </effect>
-            </Button>
          </children>
       </Pane>
       <ImageView fx:id="Small_AirPlane" fitHeight="69.0" fitWidth="85.0" layoutX="-85.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">

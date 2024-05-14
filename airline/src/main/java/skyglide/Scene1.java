@@ -30,9 +30,6 @@ public class Scene1 implements Initializable {
     */
 
     @FXML
-    private Button HomePage;
-
-    @FXML
     private Button Login;
 
     @FXML
@@ -40,9 +37,6 @@ public class Scene1 implements Initializable {
 
     @FXML
     private Pane Moving_Pane;
-
-    @FXML
-    private Button Sign_Admin;
 
     @FXML
     private Button Sign_in;
@@ -123,20 +117,6 @@ public class Scene1 implements Initializable {
             
     }
 
-    @FXML
-    void Home_Page(ActionEvent event) throws IOException {
-
-         Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-         Scene scene = new Scene(root);
-
-         stage.setTitle("Airlne App");
-         stage.setX(200);
-         stage.setY(5);
-         stage.setScene(scene);
-         stage.show();
-
-    }
 
 
     @FXML

@@ -41,7 +41,7 @@ CREATE TABLE Tickets (
     id INTEGER PRIMARY KEY,
     user_id INTEGER NOT NULL,
     flight_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    price REAL NOT NULL,
     FOREIGN KEY (user_id) REFERENCES Users(id),
     FOREIGN KEY (flight_id) REFERENCES Flights(id)
 );

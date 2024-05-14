@@ -53,7 +53,7 @@ public class DatabaseConnection {
     }
 
     public boolean isValidUser(String username, String password) {
-        String sql = "SELECT COUNT(*) FROM Users WHERE username = ? AND password = ?";
+        String sql = "SELECT COUNT(*) FROM Users WHERE name = ? AND password = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
@@ -91,6 +91,23 @@ public class DatabaseConnection {
             pstmt.setString(3, password);
             pstmt.executeUpdate();
         } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void logUser(String username, String password) {
+        String query = "SELECT * FROM Users WHERE name = ? AND password = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                User.setLogedid(rs.getInt("id"));
+                User.setLogedusername(rs.getString("name"));
+                User.setLogedemail(rs.getString("email"));
+                User.setLogedpassword(password);
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -382,4 +399,5 @@ public class DatabaseConnection {
             return airports;
             }
             
+
 }

@@ -54,7 +54,7 @@
          </children>
       </Pane>
       <Pane layoutX="256.0" layoutY="82.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" />
-      <Label layoutX="252.0" layoutY="96.0" prefHeight="53.0" prefWidth="52.0" text="Hi,">
+      <Label fx:id="welcome" layoutX="252.0" layoutY="96.0" prefHeight="53.0" prefWidth="286.0" text="Hi,">
          <font>
             <Font size="36.0" />
          </font>

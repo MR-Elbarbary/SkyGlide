@@ -2,6 +2,7 @@ package skyglide;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.animation.TranslateTransition;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -26,6 +28,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import skyglide.classes.DatabaseConnection;
 import skyglide.classes.airport.Airport;
+import skyglide.classes.flight.flight;
 
 public class flightTable implements Initializable{
 
@@ -65,33 +68,46 @@ public class flightTable implements Initializable{
     private Button usersTable;
 
     @FXML
-    private TableColumn<Airport, String> countryColumn;
+    private TableColumn<flight, Double> priceColumn;
 
     @FXML
-    private TableColumn<Airport, Integer> idColumn;
+    private TableColumn<flight, Integer> idColumn;
 
     @FXML
-    private TableColumn<Airport, String> nameColumn;
+    private TableColumn<flight, String> departureColumn;
 
     @FXML
-    private TableColumn<Airport, String> cityColumn;
+    private TableColumn<flight, String> arrivalColumn;
 
     @FXML
-    private TableView<Airport> Table;
+    private TableColumn<flight, String> dateColumn;
 
     @FXML
-    private TextField cityf;
+    private TableView<flight> Table;
 
     @FXML
-    private TextField namef;
+    private ComboBox<String> departurec;
 
     @FXML
-    private TextField countryf;
+    private ComboBox<String> arrivalc;
+
+    @FXML
+    private TextField pricef;
+
+    @FXML
+    private TextField datef;
 
     @FXML
     private Button add;
 
-    ObservableList<Airport> airports = FXCollections.observableArrayList();
+    @FXML
+    private Button edit;
+
+    @FXML
+    private Button remove;
+
+
+    ObservableList<flight> flights = FXCollections.observableArrayList();
 
 
     // Buttons For Interactiing With Users :
@@ -156,32 +172,51 @@ public class flightTable implements Initializable{
 
     @FXML
     void showflights(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getResource("flightTable.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setX(350);
+        stage.setY(130);
+        stage.show();
     }
 
     @FXML
     private void add(ActionEvent event) throws IOException {
-        String name = namef.getText();
-        String city = cityf.getText();
-        String country = countryf.getText();
+        String arrival = arrivalc.getSelectionModel().getSelectedItem();
+        String departure = departurec.getSelectionModel().getSelectedItem();
+        double price;
+        String date;
+        DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+        int departureID = databaseConnection.getAirportIdByName(departure);
+        int arrivalID = databaseConnection.getAirportIdByName(arrival);
 
-        if (name.isEmpty() || city.isEmpty() || country.isEmpty()) {
+        try {
+            date = datef.getText();
+            price = Double.parseDouble(pricef.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid number for price.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (arrival.isEmpty() || departure.isEmpty() || date.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Please Fill All DATA");
             alert.showAndWait();
         }
         else{
-            DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-            databaseConnection.addairport(name, city, country);;
-            clean();
+            databaseConnection.addflight(price, arrivalID, departureID, date);
             refreshtable();
         }
     }
 
     @FXML
     private void remove(ActionEvent event) throws IOException{
-        Airport selectedrow = Table.getSelectionModel().getSelectedItem();
+        flight selectedrow = Table.getSelectionModel().getSelectedItem();
         if (selectedrow == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -191,63 +226,77 @@ public class flightTable implements Initializable{
         }
 
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        databaseConnection.deleteairport(selectedrow.getId());
+        databaseConnection.deleteflight(selectedrow.getId());
         refreshtable();
     }
 
     @FXML
     private void clean() {
-        namef.setText(null);
-        cityf.setText(null);
-        countryf.setText(null);
+        pricef.setText(null);
+        datef.setText(null);
     }
 
     @FXML
 private void edit(ActionEvent event) throws IOException {
-    Airport selectedrow = Table.getSelectionModel().getSelectedItem();
+    flight selectedrow = Table.getSelectionModel().getSelectedItem();
     if (selectedrow == null) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(null);
-        alert.setContentText("Please select an airport to Edit.");
+        alert.setContentText("Please select a Flight to Edit.");
         alert.showAndWait();
         return;
     }
 
-    String name = namef.getText();
-    String city = cityf.getText();
-    String country = countryf.getText();
-
-    if (name.isEmpty() || city.isEmpty() || country.isEmpty()) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText(null);
-        alert.setContentText("Please Fill All Data");
-        alert.showAndWait();
-    } else {
+        String arrival = arrivalc.getSelectionModel().getSelectedItem();
+        String departure = departurec.getSelectionModel().getSelectedItem();
+        double price;
+        String date;
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        databaseConnection.updateairports(selectedrow.getId(), name, city, country);
-        refreshtable();
-    }
+        int departureID = databaseConnection.getAirportIdByName(departure);
+        int arrivalID = databaseConnection.getAirportIdByName(arrival);
+
+        try {
+            date = datef.getText();
+            price = Double.parseDouble(pricef.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid number for price.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (arrival.isEmpty() || departure.isEmpty() || date.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Please Fill All DATA");
+            alert.showAndWait();
+        }
+        else{
+            databaseConnection.editflight(selectedrow.getId(), price, arrivalID, departureID, date);
+            refreshtable();
+        }
 }
 
     @FXML
     private void refreshtable() throws IOException{
-        airports.clear();
+        flights.clear();
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        airports = databaseConnection.getAllAirports(); // Implement this method in DatabaseConnection
-        Table.setItems(airports);
-
+        flights = databaseConnection.getAllFlights(); // Implement this method in DatabaseConnection
+        Table.setItems(flights);
     }
 
     private void load() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        cityColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
-        countryColumn.setCellValueFactory(new PropertyValueFactory<>("country"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
+        arrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
         // Load data from the database and populate the table
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
-        airports = databaseConnection.getAllAirports(); // Implement this method in DatabaseConnection
-        Table.setItems(airports);
+        flights = databaseConnection.getAllFlights(); // Implement this method in DatabaseConnection
+        Table.setItems(flights);
     }
      // Strating For Window open Action Animations :
 
@@ -258,11 +307,16 @@ private void edit(ActionEvent event) throws IOException {
 
         Table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                namef.setText(newSelection.getName());
-                cityf.setText(newSelection.getCity());
-                countryf.setText(newSelection.getCountry());
+                pricef.setText(String.valueOf(newSelection.getPrice()));
+                datef.setText(newSelection.getDate());
             }
         });
+
+        DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
+        List<String> airportNames = databaseConnection.getAllAirportNames();
+
+        departurec.getItems().addAll(airportNames);
+        arrivalc.getItems().addAll(airportNames);
 
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(Left_Pane);

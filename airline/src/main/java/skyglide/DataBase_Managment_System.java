@@ -157,7 +157,13 @@ public class DataBase_Managment_System implements Initializable{
 
     @FXML
     void showflights(ActionEvent event) throws IOException {
-
+        Parent root = FXMLLoader.load(getClass().getResource("flightTable.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setX(350);
+        stage.setY(130);
+        stage.show();
     }
 
     @FXML

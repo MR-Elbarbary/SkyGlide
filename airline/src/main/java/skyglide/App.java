@@ -22,6 +22,7 @@ public class App extends Application {
         Image icon = new Image(getClass().getResourceAsStream("skyglide.png"));
         stage.setScene(scene);
         stage.setTitle("SkyGlide");
+        stage.setResizable(false);
         stage.getIcons().add(icon);
         stage.show();
     }

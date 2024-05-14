@@ -29,6 +29,9 @@ public class Scene1 implements Initializable {
     Controller Class For Scene1 (Connected To FXML Files)
     */
 
+     @FXML
+    private Label Label1;
+
     @FXML
     private Button Login;
 
@@ -160,6 +163,30 @@ public class Scene1 implements Initializable {
         translate3.setDuration(Duration.millis(2000));
         translate3.setByX(300);
         translate3.play();
+
+        TranslateTransition translate4 = new TranslateTransition();
+        translate4.setNode(Sign_in);
+        translate4.setDuration(Duration.millis(2000));
+        translate4.setByX(-360);
+        translate4.play();
+
+        TranslateTransition translate5 = new TranslateTransition();
+        translate5.setNode(Login);
+        translate5.setDuration(Duration.millis(2000));
+        translate5.setByX(-360);
+        translate5.play();
+
+        TranslateTransition translate6 = new TranslateTransition();
+        translate6.setNode(Logout);
+        translate6.setDuration(Duration.millis(2000));
+        translate6.setByX(-160);
+        translate6.play();
+
+        TranslateTransition translate7 = new TranslateTransition();
+        translate7.setNode(Label1);
+        translate7.setDuration(Duration.millis(1500));
+        translate7.setByY(-100);
+        translate7.play();
 
 
 

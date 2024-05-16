@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import skyglide.classes.aircraft.Aircraft;
 import skyglide.classes.airport.Airport;
 import skyglide.classes.flight.flight;
+import skyglide.classes.ticket.ticket;
 import skyglide.classes.user.User;
 
 public class DatabaseConnection {
@@ -407,6 +408,53 @@ public class DatabaseConnection {
                     pstmt.setDouble(3, price);
                     pstmt.executeUpdate();
                 } catch(SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            public ticket getTicketById(int user_id) {
+                String query = "SELECT * FROM Tickets WHERE id = ?";
+                try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                    pstmt.setInt(1, user_id);
+                    ResultSet rs = pstmt.executeQuery();
+                    if (rs.next()) {
+                        int id = rs.getInt("id");
+                        int flight_id = rs.getInt("flight_id");
+                        Double price = rs.getDouble("price");
+                        ticket ticket = new ticket(id, user_id, flight_id, price);
+                        return ticket;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return null; // Return null if no ticket is found
+            }
+
+            public ObservableList<ticket> getTicketsByUserId(int userId) {
+                ObservableList<ticket> tickets = FXCollections.observableArrayList();
+                String query = "SELECT * FROM Tickets WHERE user_id = ?";
+                try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                    pstmt.setInt(1, userId);
+                    ResultSet rs = pstmt.executeQuery();
+                    while (rs.next()) {
+                        int id = rs.getInt("id");
+                        int flightId = rs.getInt("flight_id");
+                        double price = rs.getDouble("price");
+                        ticket ticket = new ticket(id, userId, flightId, price);
+                        tickets.add(ticket);
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return tickets;
+            }
+
+            public void deleteTicket(int ticketId) {
+                String query = "DELETE FROM Tickets WHERE id = ?";
+                try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                    pstmt.setInt(1, ticketId);
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }

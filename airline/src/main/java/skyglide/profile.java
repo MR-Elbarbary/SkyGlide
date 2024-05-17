@@ -45,6 +45,27 @@ public class profile implements Initializable {
     private Pane Underline;
 
     @FXML
+    private Pane Small_Line;
+
+    @FXML
+    private Pane Small_Left_Pane;
+
+    @FXML
+    private Label Label1;
+
+    @FXML
+    private Label Label2;
+
+    @FXML
+    private Label Label3;
+
+    @FXML
+    private Label Label4;
+
+    @FXML
+    private Label Label5;
+
+    @FXML
     private Label My_Profile;
 
     @FXML
@@ -145,6 +166,52 @@ public class profile implements Initializable {
         translate3.setDuration(Duration.millis(1200));
         translate3.setByX(-250);
         translate3.play();        
+
+        TranslateTransition translate4 = new TranslateTransition();
+        translate4.setNode(Label1);
+        translate4.setDuration(Duration.millis(1500));
+        translate4.setByX(130);
+        translate4.play();        
+
+        TranslateTransition translate5 = new TranslateTransition();
+        translate5.setNode(Small_Line);
+        translate5.setDuration(Duration.millis(1300));
+        translate5.setByX(110);
+        translate5.play();        
+
+        TranslateTransition translate6 = new TranslateTransition();
+        translate6.setNode(Small_Left_Pane);
+        translate6.setDuration(Duration.millis(1300));
+        translate6.setByX(100);
+        translate6.play();        
+
+        TranslateTransition translate7 = new TranslateTransition();
+        translate7.setNode(Label2);
+        translate7.setDuration(Duration.millis(1900));
+        translate7.setByX(160);
+        translate7.play();        
+
+        TranslateTransition translate8 = new TranslateTransition();
+        translate8.setNode(Label3);
+        translate8.setDuration(Duration.millis(2000));
+        translate8.setByX(160);
+        translate8.play();        
+
+        TranslateTransition translate9 = new TranslateTransition();
+        translate9.setNode(Label4);
+        translate9.setDuration(Duration.millis(2200));
+        translate9.setByX(160);
+        translate9.play();        
+
+        TranslateTransition translate10 = new TranslateTransition();
+        translate10.setNode(Label5);
+        translate10.setDuration(Duration.millis(2400));
+        translate10.setByX(160);
+        translate10.play();        
+
+
+
+
 
     }
 

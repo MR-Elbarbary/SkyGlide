@@ -69,7 +69,8 @@ public class Sign implements Initializable {
     }
 
     @FXML
-    void submit(ActionEvent event) throws IOException {
+    void submit(ActionEvent event) throws IOException {  
+        
         String name = Username_Textfield.getText();
         String password = Password_Textfield.getText();
         String email = Email_Textfield.getText();

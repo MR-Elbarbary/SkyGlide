@@ -65,7 +65,6 @@ public class Scene1 implements Initializable {
          Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
          Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          Scene scene = new Scene(root);
-
          stage.setTitle("Login");
          stage.setX(330);
          stage.setY(90);

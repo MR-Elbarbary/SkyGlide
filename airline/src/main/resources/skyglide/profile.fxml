@@ -30,10 +30,10 @@
          </cursor></Button>
       <TableView fx:id="Table" layoutX="321.0" layoutY="268.0" prefHeight="299.0" prefWidth="555.0">
         <columns>
-          <TableColumn id="ID" fx:id="idColumn" prefWidth="122.0" text="ID" />
-          <TableColumn id="UserID" fx:id="userColumn" prefWidth="118.0" text="UserID" />
-            <TableColumn id="FlightID" fx:id="flightColumn" prefWidth="162.0" text="FlightID" />
-            <TableColumn id="Price" fx:id="priceColumn" prefWidth="152.0" text="Price" />
+          <TableColumn id="ID" fx:id="idColumn" prefWidth="122.0" style="-fx-alignment: CENTER;" text="ID" />
+          <TableColumn id="UserID" fx:id="userColumn" prefWidth="118.0" style="-fx-alignment: CENTER;" text="UserID" />
+            <TableColumn id="FlightID" fx:id="flightColumn" prefWidth="162.0" style="-fx-alignment: CENTER;" text="FlightID" />
+            <TableColumn id="Price" fx:id="priceColumn" prefWidth="152.0" style="-fx-alignment: CENTER;" text="Price" />
         </columns>
          <effect>
             <DropShadow spread="0.65">

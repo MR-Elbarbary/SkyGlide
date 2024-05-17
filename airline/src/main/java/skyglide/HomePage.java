@@ -177,7 +177,7 @@ public class HomePage implements Initializable {
     @FXML
     void Search(ActionEvent event) throws IOException {
         
-        Parent root = FXMLLoader.load(getClass().getResource("Checking_Fligts.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Checking_Flights2.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setTitle("SkyGlide");

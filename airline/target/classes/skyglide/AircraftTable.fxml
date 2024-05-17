@@ -114,10 +114,10 @@
          <children>
             <TableView fx:id="Table" layoutX="14.0" layoutY="64.0" prefHeight="356.0" prefWidth="756.0">
               <columns>
-                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="nameColumn" prefWidth="134.0" text="Name" />
-                  <TableColumn fx:id="capacityColumn" prefWidth="186.0" text="Capacity" />
-                  <TableColumn fx:id="priceColumn" prefWidth="231.0" text="Price" />
+                <TableColumn fx:id="idColumn" prefWidth="75.0" style="-fx-alignment: CENTER;" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="134.0" style="-fx-alignment: CENTER;" text="Name" />
+                  <TableColumn fx:id="capacityColumn" prefWidth="186.0" style="-fx-alignment: CENTER;" text="Capacity" />
+                  <TableColumn fx:id="priceColumn" prefWidth="231.0" style="-fx-alignment: CENTER;" text="Price" />
               </columns>
             </TableView>
             <TextField fx:id="namef" layoutX="14.0" layoutY="441.0" promptText="Name" />

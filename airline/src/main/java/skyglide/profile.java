@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.DatabaseMetaData;
 import java.util.ResourceBundle;
 
+import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +19,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import skyglide.classes.DatabaseConnection;
 import skyglide.classes.ticket.ticket;
 import skyglide.classes.user.User;
@@ -32,7 +36,20 @@ public class profile implements Initializable {
     private Label emaillable;
 
     @FXML
-    private Button back;
+    private Button Back;
+
+    @FXML
+    private Pane Left_Pane;
+
+    @FXML
+    private Pane Underline;
+
+    @FXML
+    private Label My_Profile;
+
+    @FXML
+    private VBox Small_Table;
+
 
     @FXML
     private TableColumn<ticket, Integer> flightColumn;
@@ -60,6 +77,7 @@ public class profile implements Initializable {
 
     @FXML
     void back(ActionEvent event) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
          Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          Scene scene = new Scene(root);
@@ -83,6 +101,7 @@ public class profile implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
         idlable.setText("ID: "+String.valueOf(User.getLogedid()));
         namelable.setText(User.getLogedusername());
         emaillable.setText("Email: "+User.getLogedemail());
@@ -97,6 +116,36 @@ public class profile implements Initializable {
         DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
         ObservableList<ticket> tickets = databaseConnection.getTicketsByUserId(userId);
         Table.setItems(tickets);
+
+
+        // Start With Animations :
+
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(Left_Pane);
+        translate.setDuration(Duration.millis(1000));
+        translate.setByX(180);
+        translate.play();        
+
+
+        TranslateTransition translate1 = new TranslateTransition();
+        translate1.setNode(My_Profile);
+        translate1.setDuration(Duration.millis(1500));
+        translate1.setByY(90);
+        translate1.play();        
+
+
+        TranslateTransition translate2 = new TranslateTransition();
+        translate2.setNode(Small_Table);
+        translate2.setDuration(Duration.millis(1500));
+        translate2.setByY(200);
+        translate2.play();        
+
+        TranslateTransition translate3 = new TranslateTransition();
+        translate3.setNode(Underline);
+        translate3.setDuration(Duration.millis(1200));
+        translate3.setByX(-250);
+        translate3.play();        
+
     }
 
 }

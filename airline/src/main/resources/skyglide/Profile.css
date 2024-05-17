@@ -1,0 +1,45 @@
+#Main_Pane {
+    -fx-background-color : rgba(207, 207, 252, 0.993) ;
+}
+
+
+#Left_Pane  {
+
+     -fx-background-color : rgba(34, 3, 63, 0.993) ;
+
+    }
+
+#Back {
+
+     -fx-background-color : rgb(255, 136, 0) ;
+
+    }
+
+#ID {
+
+    -fx-background-color :rgba(105, 134, 212, 0.993) ;
+}  
+
+#UserID {
+
+    -fx-background-color : rgba(105, 134, 212, 0.993) ;
+
+}
+
+#FlightID {
+
+    -fx-background-color :rgba(105, 134, 212, 0.993) ;
+
+}
+
+#Price {
+
+    -fx-background-color : rgba(105, 134, 212, 0.993) ;
+
+}
+
+#Table {
+
+    -fx-background-color : rgba(5, 13, 36, 0.993) ;
+
+}

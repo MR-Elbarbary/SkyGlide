@@ -84,6 +84,23 @@ public class DatabaseConnection {
     return users;
     }
 
+    public int getUserId(String name, String password, String email) {
+        int id = 0;
+        String sql = "SELECT id FROM users WHERE name = ? AND password = ? AND email = ? ";
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, password);
+            pstmt.setString(3, email);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                id = rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            }
+        return id;
+        }
+
     public void adduser(String name, String password, String email){
         String sql = "INSERT INTO Users(name, email, password) VALUES(?, ?, ?)";
         try(PreparedStatement pstmt = connection.prepareStatement(sql)){

@@ -65,11 +65,11 @@
          <children>
             <TableView id="Flight_Table" fx:id="Table" layoutX="3.0" layoutY="8.0" prefHeight="389.0" prefWidth="752.0" stylesheets="@Checking_Flights.css">
               <columns>
-                <TableColumn id="Right_Column " fx:id="idColumn" minWidth="0.0" prefWidth="126.0" text="ID" />
-                <TableColumn id="Left_Column " fx:id="departureColumn" prefWidth="135.0" text="departure" />
-                  <TableColumn id="Right_Column " fx:id="arrivalColumn" minWidth="0.0" prefWidth="188.0" text="Arrival" />
-                  <TableColumn id="Right_Column " fx:id="priceColumn" minWidth="0.0" prefWidth="103.0" text="Price" />
-                  <TableColumn id="Right_Column " fx:id="dateColumn" minWidth="0.0" prefWidth="194.0" text="Date" />
+                <TableColumn id="Right_Column " fx:id="idColumn" minWidth="0.0" prefWidth="126.0" style="-fx-alignment: CENTER;" text="ID" />
+                <TableColumn id="Left_Column " fx:id="departureColumn" prefWidth="135.0" style="-fx-alignment: CENTER;" text="departure" />
+                  <TableColumn id="Right_Column " fx:id="arrivalColumn" minWidth="0.0" prefWidth="188.0" style="-fx-alignment: CENTER;" text="Arrival" />
+                  <TableColumn id="Right_Column " fx:id="priceColumn" minWidth="0.0" prefWidth="103.0" style="-fx-alignment: CENTER;" text="Price" />
+                  <TableColumn id="Right_Column " fx:id="dateColumn" minWidth="0.0" prefWidth="194.0" style="-fx-alignment: CENTER;" text="Date" />
               </columns>
             </TableView>
          </children>

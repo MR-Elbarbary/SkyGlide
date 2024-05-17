@@ -114,10 +114,10 @@
          <children>
             <TableView fx:id="userTable" layoutX="14.0" layoutY="64.0" prefHeight="356.0" prefWidth="756.0">
               <columns>
-                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                <TableColumn fx:id="nameColumn" prefWidth="134.0" text="Name" />
-                  <TableColumn fx:id="passwordColumn" prefWidth="186.0" text="Password" />
-                  <TableColumn fx:id="emailColumn" prefWidth="231.0" text="Email" />
+                <TableColumn fx:id="idColumn" prefWidth="75.0" style="-fx-alignment: CENTER;" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="134.0" style="-fx-alignment: CENTER;" text="Name" />
+                  <TableColumn fx:id="passwordColumn" prefWidth="186.0" style="-fx-alignment: CENTER;" text="Password" />
+                  <TableColumn fx:id="emailColumn" prefWidth="231.0" style="-fx-alignment: CENTER;" text="Email" />
               </columns>
             </TableView>
             <TextField fx:id="username" layoutX="14.0" layoutY="441.0" promptText="Name" />

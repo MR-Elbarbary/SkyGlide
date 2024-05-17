@@ -84,6 +84,10 @@ public class Sign implements Initializable {
         else{
             DatabaseConnection databaseConnection = DatabaseConnection.getInstance();
             databaseConnection.adduser(name, password, email);
+            User.setLogedemail(email);
+            User.setLogedpassword(password);
+            User.setLogedusername(name);
+            User.setLogedid(databaseConnection.getUserId(name, password, email));
 
             Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

@@ -10,7 +10,7 @@ public class ticket {
         setId(id);
         setUser_id(user_id);
         setFlight_id(flight_id);
-        setPrice(flight_id);
+        setPrice(price);
     }
     public void setFlight_id(int flight_id) {
         this.flight_id = flight_id;

@@ -163,6 +163,7 @@ public class HomePage implements Initializable {
 
     @FXML
     void Switch_Profile(ActionEvent event) throws IOException {
+        
         Parent root = FXMLLoader.load(getClass().getResource("profile.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

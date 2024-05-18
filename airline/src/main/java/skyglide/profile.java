@@ -158,7 +158,7 @@ public class profile implements Initializable {
         TranslateTransition translate2 = new TranslateTransition();
         translate2.setNode(Small_Table);
         translate2.setDuration(Duration.millis(1500));
-        translate2.setByY(200);
+        translate2.setByY(260);
         translate2.play();        
 
         TranslateTransition translate3 = new TranslateTransition();

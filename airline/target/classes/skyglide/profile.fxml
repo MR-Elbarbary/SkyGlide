@@ -45,12 +45,7 @@
             </DropShadow>
          </effect>
       </TableView>
-      <Label fx:id="namelable" alignment="CENTER" layoutX="702.0" layoutY="141.0" prefHeight="78.0" prefWidth="212.0">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <VBox fx:id="Small_Table" layoutX="345.0" layoutY="-189.0" prefHeight="174.0" prefWidth="278.0" style="-fx-background-color: rgba(5, 13, 36, 0.993);">
+      <VBox fx:id="Small_Table" layoutX="345.0" layoutY="-240.0" prefHeight="214.0" prefWidth="278.0" style="-fx-background-color: rgba(5, 13, 36, 0.993);">
          <children>
             <Label fx:id="passwordlable" prefHeight="53.0" prefWidth="278.0" text="Password:   " textFill="#e900ff">
                <font>
@@ -65,6 +60,11 @@
             <Label fx:id="idlable" layoutX="10.0" layoutY="63.0" prefHeight="53.0" prefWidth="278.0" text="ID:   " textFill="#e900ff">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="namelable" alignment="CENTER" prefHeight="78.0" prefWidth="205.0" textFill="#e900ff">
+               <font>
+                  <Font size="36.0" />
                </font>
             </Label>
          </children>
